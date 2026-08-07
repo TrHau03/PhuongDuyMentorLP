@@ -5,10 +5,16 @@ import type { ImageKey } from "./images";
  * Số liệu đang là mẫu — thay bằng số thật trước khi lên production.
  */
 
+/** Domain thật. Đổi ở đây hoặc set NEXT_PUBLIC_SITE_URL trên Vercel là đủ. */
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://phuongduymentor.id.vn"
+).replace(/\/$/, "");
+
 export const site = {
   name: "Phương Duy Mentor",
   short: "PD Mentor",
   tagline: "Vật lý trị liệu & phục hồi chức năng, kèm 1:1",
+  url: SITE_URL,
   hotline: "0900 000 000", // TODO: số thật
   zalo: "0900000000", // TODO
   email: "lienhe@phuongduymentor.vn", // TODO
@@ -16,6 +22,57 @@ export const site = {
   hours: "Thứ 2 – Thứ 7 · 08:00 – 20:00",
   facebook: "#",
   city: "TP.HCM",
+};
+
+/**
+ * Địa chỉ tách thành phần cho structured data (Google Business / Local SEO).
+ * TODO: điền đúng khi có địa chỉ thật, và lấy toạ độ từ Google Maps.
+ */
+export const address = {
+  street: "123 Đường ABC",
+  district: "Quận X",
+  city: "TP. Hồ Chí Minh",
+  region: "SG",
+  postalCode: "700000",
+  country: "VN",
+  lat: 10.762622, // TODO: toạ độ phòng khám thật
+  lng: 106.660172,
+};
+
+/** Giờ mở cửa dạng máy đọc được — khớp với site.hours ở trên. */
+export const openingHours = {
+  days: [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ] as const,
+  opens: "08:00",
+  closes: "20:00",
+};
+
+/** Mô tả dùng chung cho <meta description>, OG và structured data. */
+export const seo = {
+  description:
+    "Phòng vật lý trị liệu kèm 1:1 tại TP.HCM: đánh giá vận động 45 phút, giáo án riêng theo cơ thể bạn, theo sát tới khi bạn tự tập được. Điều trị thoát vị đĩa đệm, đau cổ vai gáy, thoái hoá khớp, chấn thương thể thao và phục hồi sau mổ.",
+  shortDescription:
+    "Đánh giá vận động, trị liệu bằng tay và giáo án cá nhân hoá. Một người kèm, không xoay ca.",
+  keywords: [
+    "vật lý trị liệu TP.HCM",
+    "phục hồi chức năng",
+    "thoát vị đĩa đệm",
+    "đau thần kinh tọa",
+    "đau cổ vai gáy",
+    "thoái hoá cột sống",
+    "trị liệu bằng tay",
+    "manual therapy",
+    "chấn thương thể thao",
+    "phục hồi sau mổ dây chằng",
+    "cong vẹo cột sống",
+    "vật lý trị liệu 1:1",
+  ],
 };
 
 export const nav = [
