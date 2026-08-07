@@ -22,14 +22,14 @@ export function BodyMap() {
         {/* Hình người + điểm chạm */}
         <div className="relative mx-auto aspect-[200/440] w-[132px] sm:w-full">
           <svg viewBox="0 0 200 440" className="absolute inset-0 h-full w-full" aria-hidden>
-            <g stroke="var(--color-jade)" strokeOpacity="0.55" fill="none" strokeLinecap="round">
+            <g stroke="var(--color-sky)" strokeOpacity="0.55" fill="none" strokeLinecap="round">
               <path d="M76,88 C58,104 50,132 47,168" strokeWidth="14" />
               <path d="M124,88 C142,104 150,132 153,168" strokeWidth="14" />
               <path d="M86,192 C80,240 79,296 82,352" strokeWidth="17" />
               <path d="M114,192 C120,240 121,296 118,352" strokeWidth="17" />
               <path d="M100,64 L100,80" strokeWidth="15" />
             </g>
-            <g fill="var(--color-jade)" fillOpacity="0.55">
+            <g fill="var(--color-sky)" fillOpacity="0.55">
               <circle cx="100" cy="42" r="22" />
               <circle cx="47" cy="172" r="7" />
               <circle cx="153" cy="172" r="7" />
@@ -65,7 +65,7 @@ export function BodyMap() {
                   className={`block rounded-full transition-all duration-300 ${
                     isActive
                       ? "h-3.5 w-3.5 bg-clay ring-4 ring-clay/25"
-                      : "h-2.5 w-2.5 bg-pine/45 ring-2 ring-card"
+                      : "h-2.5 w-2.5 bg-brand/45 ring-2 ring-card"
                   }`}
                 />
               </button>
@@ -83,7 +83,7 @@ export function BodyMap() {
                 onClick={() => setActiveId(r.id)}
                 className={`rounded-full border px-2.5 py-1 text-[12px] transition-colors ${
                   r.id === active.id
-                    ? "border-pine bg-pine text-paper"
+                    ? "border-brand bg-brand text-paper"
                     : "border-line text-muted"
                 }`}
               >

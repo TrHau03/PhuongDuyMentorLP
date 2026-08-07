@@ -1,17 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette — sage paper, deep pine, saffron vitality. Không dùng xanh–trắng phòng khám. */
-  --color-paper: #edf1ea;
-  --color-card: #f8faf6;
-  --color-ink: #14201a;
-  --color-muted: #566b60;
-  --color-pine: #1c3b30;
-  --color-pine-soft: #24503f;
-  --color-jade: #6f9b84;
+  /*
+   * Palette lấy thẳng từ logo PDM: navy #03367e, xanh giữa #0850be, xanh sáng #0087de.
+   * Nền giữ sắc giấy ngả ấm chứ không trắng tinh, và vàng saffron ở lại làm điểm
+   * nhấn — navy phối vàng thì trang mới có nhiệt, đi toàn xanh–trắng là ra phòng khám.
+   */
+  --color-paper: #eef1f7;
+  --color-card: #f9fbfe;
+  --color-ink: #0e1b2e;
+  --color-muted: #52627d;
+  --color-brand: #03367e;
+  --color-brand-soft: #0850be;
+  --color-sky: #0087de;
+  /* Chữ nhỏ đặt trên nền navy phải dùng tông này: #0087de chỉ đạt 3.2:1, chưa qua AA. */
+  --color-sky-soft: #7cc0f2;
   --color-saffron: #e39a2e;
   --color-clay: #c4553b;
-  --color-line: #d5ddd2;
+  --color-line: #d2dae8;
 
   --font-display: var(--font-display), system-ui, sans-serif;
   --font-sans: var(--font-body), system-ui, sans-serif;
@@ -38,7 +44,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-pine);
+  outline: 2px solid var(--color-brand);
   outline-offset: 3px;
   border-radius: 4px;
 }

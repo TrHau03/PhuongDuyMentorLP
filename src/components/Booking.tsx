@@ -57,7 +57,7 @@ export function Booking() {
               <div>
                 <dt className="label text-muted">Hotline</dt>
                 <dd className="mt-1">
-                  <a className="hover:text-pine" href={`tel:${site.hotline.replace(/\s/g, "")}`}>
+                  <a className="hover:text-brand" href={`tel:${site.hotline.replace(/\s/g, "")}`}>
                     {site.hotline}
                   </a>
                 </dd>
@@ -74,7 +74,7 @@ export function Booking() {
           </div>
 
           {status === "done" ? (
-            <div className="flex flex-col items-start justify-center rounded-card bg-pine p-8 text-paper">
+            <div className="flex flex-col items-start justify-center rounded-card bg-brand p-8 text-paper">
               <svg aria-hidden viewBox="0 0 24 24" className="h-9 w-9 text-saffron" fill="none">
                 <path
                   d="m4 12.5 5 5L20 7"
@@ -92,7 +92,7 @@ export function Booking() {
               <button
                 type="button"
                 onClick={() => setStatus("idle")}
-                className="mt-6 text-[14px] text-jade underline underline-offset-4"
+                className="mt-6 text-[14px] text-sky-soft underline underline-offset-4"
               >
                 Gửi thêm một lượt nữa
               </button>
@@ -155,7 +155,7 @@ export function Booking() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="inline-flex items-center rounded-full bg-pine px-6 py-3.5 text-[15px] font-medium text-paper transition-colors hover:bg-pine-soft disabled:opacity-60"
+                  className="inline-flex items-center rounded-full bg-brand px-6 py-3.5 text-[15px] font-medium text-paper transition-colors hover:bg-brand-soft disabled:opacity-60"
                 >
                   {status === "sending" ? "Đang gửi…" : "Gửi yêu cầu đặt lịch"}
                 </button>
@@ -178,7 +178,7 @@ export function Booking() {
 }
 
 const inputClass =
-  "w-full rounded-xl border border-line bg-paper px-4 py-3 text-[15px] outline-none transition-colors focus:border-pine";
+  "w-full rounded-xl border border-line bg-paper px-4 py-3 text-[15px] outline-none transition-colors focus:border-brand";
 
 function Field({
   label,

@@ -27,8 +27,8 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#1c3b30",
-          color: "#edf1ea",
+          background: "#03367e",
+          color: "#eef1f7",
           padding: "72px 80px",
           fontFamily: "Be Vietnam Pro",
         }}
@@ -47,7 +47,7 @@ export default async function Image() {
               fontSize: 26,
               letterSpacing: 4,
               textTransform: "uppercase",
-              color: "#6f9b84",
+              color: "#4d9fe0",
             }}
           >
             {`${site.city} · ${site.hours}`}
@@ -68,7 +68,7 @@ export default async function Image() {
           <div
             style={{
               fontSize: 40,
-              color: "#a9c2b4",
+              color: "#a8c6e8",
               lineHeight: 1.3,
               maxWidth: 900,
             }}
@@ -95,7 +95,7 @@ export default async function Image() {
                   {stat.unit}
                 </span>
               </div>
-              <div style={{ fontSize: 22, color: "#8fae9e", maxWidth: 220 }}>
+              <div style={{ fontSize: 22, color: "#7fa4cc", maxWidth: 220 }}>
                 {stat.label}
               </div>
             </div>

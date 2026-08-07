@@ -58,20 +58,27 @@ export function About() {
           </Reveal>
 
           <Reveal delay={200}>
-            <div className="grid gap-4 pt-4 sm:grid-cols-2">
+            <div className="grid gap-4 pt-4 sm:grid-cols-3">
               <Figure
                 id="aboutRoom"
-                alt="Phòng trị liệu"
+                alt="Phòng trị liệu một kèm một"
                 note="Phòng trị liệu, góc rộng 4:3"
-                className="aspect-[4/3] rounded-card"
-                sizes="(min-width: 640px) 30vw, 100vw"
+                className="aspect-square rounded-card"
+                sizes="(min-width: 640px) 20vw, 100vw"
               />
               <Figure
                 id="aboutHands"
-                alt="Thao tác trị liệu bằng tay"
-                note="Cận cảnh thao tác tay trên vai bệnh nhân, 4:3"
-                className="aspect-[4/3] rounded-card"
-                sizes="(min-width: 640px) 30vw, 100vw"
+                alt="Trị liệu cột sống bằng tay"
+                note="Cận cảnh thao tác tay trên vai bệnh nhân"
+                className="aspect-square rounded-card"
+                sizes="(min-width: 640px) 20vw, 100vw"
+              />
+              <Figure
+                id="aboutJoint"
+                alt="Khớp xương và sụn"
+                note="Minh hoạ khớp"
+                className="aspect-square rounded-card"
+                sizes="(min-width: 640px) 20vw, 100vw"
               />
             </div>
           </Reveal>

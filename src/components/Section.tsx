@@ -14,20 +14,20 @@ export function Section({
   title?: ReactNode;
   lead?: string;
   children: ReactNode;
-  tone?: "paper" | "pine";
+  tone?: "paper" | "brand";
   className?: string;
 }) {
-  const dark = tone === "pine";
+  const dark = tone === "brand";
   return (
     <section
       id={id}
-      className={`py-16 md:py-24 ${dark ? "bg-pine text-paper" : ""} ${className}`}
+      className={`py-16 md:py-24 ${dark ? "bg-brand text-paper" : ""} ${className}`}
     >
       <div className="mx-auto max-w-[1180px] px-5 md:px-8">
         {(eyebrow || title) && (
           <header className="max-w-[62ch]">
             {eyebrow && (
-              <p className={`label ${dark ? "text-jade" : "text-muted"}`}>{eyebrow}</p>
+              <p className={`label ${dark ? "text-sky-soft" : "text-muted"}`}>{eyebrow}</p>
             )}
             {title && (
               <h2 className="display mt-4 text-[30px] sm:text-[40px]">{title}</h2>

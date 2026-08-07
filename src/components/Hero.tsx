@@ -7,7 +7,7 @@ export function Hero() {
       {/* Cung tầm vận động chạy nền */}
       <svg
         aria-hidden
-        className="pointer-events-none absolute -right-40 -top-24 h-[620px] w-[620px] text-jade/20 md:-right-24"
+        className="pointer-events-none absolute -right-40 -top-24 h-[620px] w-[620px] text-sky/20 md:-right-24"
         viewBox="0 0 200 200"
         fill="none"
       >
@@ -44,13 +44,13 @@ export function Hero() {
             <div className="rise mt-8 flex flex-wrap gap-3" style={{ animationDelay: "240ms" }}>
               <a
                 href="#dat-lich"
-                className="inline-flex items-center gap-2 rounded-full bg-pine px-6 py-3.5 text-[15px] font-medium text-paper transition-colors hover:bg-pine-soft"
+                className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3.5 text-[15px] font-medium text-paper transition-colors hover:bg-brand-soft"
               >
                 Đặt buổi đánh giá 45 phút
               </a>
               <a
                 href="#lo-trinh"
-                className="inline-flex items-center gap-2 rounded-full border border-pine/25 px-6 py-3.5 text-[15px] font-medium transition-colors hover:border-pine hover:bg-pine/5"
+                className="inline-flex items-center gap-2 rounded-full border border-brand/25 px-6 py-3.5 text-[15px] font-medium transition-colors hover:border-brand hover:bg-brand/5"
               >
                 Xem lộ trình 5 bước
               </a>
@@ -68,7 +68,7 @@ export function Hero() {
                 <div key={s.label}>
                   <dt className="sr-only">{s.label}</dt>
                   <dd>
-                    <span className="display block text-[30px] text-pine">
+                    <span className="display block text-[30px] text-brand">
                       {s.value}
                       {s.unit && <span className="ml-1 text-[15px] text-saffron">{s.unit}</span>}
                     </span>

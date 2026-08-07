@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { nav, site } from "@/lib/site";
 
@@ -50,7 +51,7 @@ export function SiteHeader() {
 
         <a
           href="#dat-lich"
-          className="ml-auto lg:ml-0 hidden sm:inline-flex items-center gap-2 rounded-full bg-pine px-5 py-2.5 text-[14px] font-medium text-paper transition-colors hover:bg-pine-soft"
+          className="ml-auto lg:ml-0 hidden sm:inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-[14px] font-medium text-paper transition-colors hover:bg-brand-soft"
         >
           Đặt lịch đánh giá
         </a>
@@ -92,7 +93,7 @@ export function SiteHeader() {
             ))}
             <a
               href={`tel:${site.hotline.replace(/\s/g, "")}`}
-              className="mt-4 flex items-center justify-center rounded-full bg-pine px-5 py-3 text-[15px] font-medium text-paper"
+              className="mt-4 flex items-center justify-center rounded-full bg-brand px-5 py-3 text-[15px] font-medium text-paper"
             >
               Gọi {site.hotline}
             </a>
@@ -103,18 +104,17 @@ export function SiteHeader() {
   );
 }
 
-/** Chữ lồng PD dựng từ hai cung tầm vận động. */
+/** Logo PDM. Ảnh đã tách nền nên đặt được lên mọi nền sáng. */
 function Monogram({ className = "" }: { className?: string }) {
   return (
-    <span
-      className={`grid h-9 w-9 place-items-center rounded-full bg-pine text-paper ${className}`}
+    <Image
+      src="/logo.png"
+      alt=""
+      width={72}
+      height={72}
+      priority
+      className={`h-9 w-9 shrink-0 object-contain ${className}`}
       aria-hidden
-    >
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
-        <path d="M8 5v14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M8 5h3.5a3.5 3.5 0 0 1 0 7H8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M14 12a5.5 5.5 0 0 1-4.5 5.4" stroke="var(--color-saffron)" strokeWidth="1.8" strokeLinecap="round" />
-      </svg>
-    </span>
+    />
   );
 }

@@ -21,8 +21,8 @@ export function Stories() {
                 {s.quote}
               </blockquote>
 
-              <div className="mt-6 flex items-center gap-2.5 rounded-xl bg-pine/5 px-3.5 py-3">
-                <svg aria-hidden viewBox="0 0 20 20" className="h-4 w-4 shrink-0 text-pine" fill="none">
+              <div className="mt-6 flex items-center gap-2.5 rounded-xl bg-brand/5 px-3.5 py-3">
+                <svg aria-hidden viewBox="0 0 20 20" className="h-4 w-4 shrink-0 text-brand" fill="none">
                   <path
                     d="M3 14 8 9l3 3 6-6"
                     stroke="currentColor"

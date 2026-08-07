@@ -6,7 +6,7 @@ export function Journey() {
   return (
     <Section
       id="lo-trinh"
-      tone="pine"
+      tone="brand"
       eyebrow="Lộ trình"
       title="Năm bước, theo đúng thứ tự này"
       lead="Không bước nào bị nhảy cóc. Bạn luôn biết mình đang ở đâu và bước kế tiếp cần gì."
@@ -20,11 +20,11 @@ export function Journey() {
           <Reveal key={s.step} delay={i * 70}>
             <li className="relative flex gap-5 pb-10 last:pb-0 md:gap-8">
               <span className="hidden w-[88px] shrink-0 pt-1 text-right md:block">
-                <span className="label text-jade">Bước {s.step}</span>
+                <span className="label text-sky-soft">Bước {s.step}</span>
               </span>
               <span
                 aria-hidden
-                className="relative z-10 mt-1 grid h-[31px] w-[31px] shrink-0 place-items-center rounded-full border border-paper/25 bg-pine font-mono text-[12px] text-jade"
+                className="relative z-10 mt-1 grid h-[31px] w-[31px] shrink-0 place-items-center rounded-full border border-paper/25 bg-brand font-mono text-[12px] text-sky-soft"
               >
                 {s.step}
               </span>

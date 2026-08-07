@@ -14,7 +14,7 @@ export function Services() {
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
           <Reveal key={s.id} delay={i * 60} className="h-full">
-            <article className="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-card transition-colors hover:border-pine/35">
+            <article className="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-card transition-colors hover:border-brand/35">
               <Figure
                 id={s.image}
                 alt={s.title}

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { IMAGES, type ImageKey } from "@/lib/images";
+import { CONTAIN, IMAGES, type ImageKey } from "@/lib/images";
 
 type Props = {
   id: ImageKey;
@@ -11,6 +11,13 @@ type Props = {
   priority?: boolean;
   /** Khung quá nhỏ để chứa chữ (avatar, icon) — chỉ vẽ khung rỗng. */
   bare?: boolean;
+  /**
+   * "cover" cho ảnh chụp thật, lấp đầy khung.
+   * "contain" cho ảnh tách nền và hình 3D — object-cover sẽ cắt cụt chúng,
+   * nên khung tự thêm nền nhạt và chừa lề để hình đứng trọn.
+   * Bỏ trống thì lấy theo danh sách CONTAIN trong lib/images.ts.
+   */
+  fit?: "cover" | "contain";
 };
 
 /**
@@ -25,6 +32,7 @@ export function Figure({
   sizes = "(min-width: 768px) 50vw, 100vw",
   priority,
   bare,
+  fit,
 }: Props) {
   const src = IMAGES[id];
 
@@ -45,9 +53,20 @@ export function Figure({
     );
   }
 
+  const contain = (fit ?? (CONTAIN.has(id) ? "contain" : "cover")) === "contain";
+
   return (
-    <div className={`relative overflow-hidden ${className}`}>
-      <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
+    <div
+      className={`relative overflow-hidden ${contain ? "bg-brand/[0.06] p-4" : ""} ${className}`}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes={sizes}
+        priority={priority}
+        className={contain ? "object-contain p-2" : "object-cover"}
+      />
     </div>
   );
 }
