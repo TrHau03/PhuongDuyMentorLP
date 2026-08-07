@@ -1,0 +1,120 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { nav, site } from "@/lib/site";
+
+export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const [solid, setSolid] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setSolid(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <header
+      className={`sticky top-0 z-50 transition-colors duration-300 ${
+        solid ? "bg-paper/92 backdrop-blur-md border-b border-line" : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex h-[72px] max-w-[1180px] items-center gap-6 px-5 md:px-8">
+        <a href="#top" className="flex items-center gap-2.5 shrink-0">
+          <Monogram />
+          <span className="leading-tight">
+            <span className="display block text-[17px]">Phương Duy</span>
+            <span className="label block text-muted text-[10px]">Mentor · VLTL</span>
+          </span>
+        </a>
+
+        <nav className="ml-auto hidden lg:flex items-center gap-7" aria-label="Điều hướng chính">
+          {nav.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-[14px] text-muted transition-colors hover:text-ink"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <a
+          href="#dat-lich"
+          className="ml-auto lg:ml-0 hidden sm:inline-flex items-center gap-2 rounded-full bg-pine px-5 py-2.5 text-[14px] font-medium text-paper transition-colors hover:bg-pine-soft"
+        >
+          Đặt lịch đánh giá
+        </a>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="lg:hidden ml-auto sm:ml-0 grid h-10 w-10 place-items-center rounded-full border border-line"
+          aria-expanded={open}
+          aria-label={open ? "Đóng menu" : "Mở menu"}
+        >
+          <span className="relative block h-[10px] w-[18px]">
+            <span
+              className={`absolute left-0 h-[1.5px] w-full bg-ink transition-transform ${
+                open ? "top-[4px] rotate-45" : "top-0"
+              }`}
+            />
+            <span
+              className={`absolute left-0 h-[1.5px] w-full bg-ink transition-transform ${
+                open ? "top-[4px] -rotate-45" : "top-[9px]"
+              }`}
+            />
+          </span>
+        </button>
+      </div>
+
+      {open && (
+        <div className="lg:hidden border-t border-line bg-paper">
+          <nav className="mx-auto max-w-[1180px] px-5 py-4 md:px-8" aria-label="Điều hướng di động">
+            {nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="block border-b border-line/70 py-3.5 text-[15px] last:border-0"
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href={`tel:${site.hotline.replace(/\s/g, "")}`}
+              className="mt-4 flex items-center justify-center rounded-full bg-pine px-5 py-3 text-[15px] font-medium text-paper"
+            >
+              Gọi {site.hotline}
+            </a>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}
+
+/** Chữ lồng PD dựng từ hai cung tầm vận động. */
+function Monogram({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`grid h-9 w-9 place-items-center rounded-full bg-pine text-paper ${className}`}
+      aria-hidden
+    >
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
+        <path d="M8 5v14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M8 5h3.5a3.5 3.5 0 0 1 0 7H8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M14 12a5.5 5.5 0 0 1-4.5 5.4" stroke="var(--color-saffron)" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    </span>
+  );
+}
