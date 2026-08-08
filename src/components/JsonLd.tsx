@@ -1,63 +1,89 @@
 import {
   address,
+  areas,
   credentials,
   faqs,
+  fullAddress,
   openingHours,
   seo,
   services,
   site,
+  type Area,
 } from "@/lib/site";
 
 /**
  * Structured data (JSON-LD) cho Google.
  *
- * Ba khối:
- *  - MedicalBusiness  → hồ sơ phòng khám, phục vụ local SEO / Google Maps
- *  - WebSite          → gắn tên site vào kết quả tìm kiếm
- *  - FAQPage          → mở rộng câu hỏi ngay dưới kết quả
+ * Trang chủ dùng <JsonLd />, trang khu vực dùng <AreaJsonLd area={...} />.
+ * Hai bên trỏ về cùng một @id phòng khám nên Google hiểu đây là một cơ sở duy
+ * nhất có nhiều trang, không phải nhiều cơ sở khác nhau.
+ *
+ * Khối trên trang chủ:
+ *  - MedicalClinic   → hồ sơ phòng khám, phục vụ local SEO / Google Maps
+ *  - WebSite         → gắn tên site vào kết quả tìm kiếm
+ *  - FAQPage         → mở rộng câu hỏi ngay dưới kết quả
  *
  * Nội dung lấy hết từ lib/site.ts nên sửa nội dung trang là structured data
  * tự khớp theo, không lệch nhau.
  */
 
-/** "0900 000 000" → "+84900000000" */
+/** "0835 632 227" → "+84835632227" */
 function toE164(phone: string) {
   const digits = phone.replace(/\D/g, "");
   return digits.startsWith("0") ? `+84${digits.slice(1)}` : `+${digits}`;
 }
 
 const businessId = `${site.url}/#business`;
+const telephone = toE164(site.hotline);
+
+const postalAddress = {
+  "@type": "PostalAddress",
+  streetAddress: address.street,
+  addressLocality: address.ward,
+  addressRegion: address.region,
+  postalCode: address.postalCode,
+  addressCountry: address.country,
+};
+
+/**
+ * Vùng phục vụ. Google dùng trường này để quyết định phòng khám có nên hiện
+ * với người tìm ở địa phương đó hay không, kể cả khi họ ở cách vài chục cây số.
+ */
+const areaServed = [
+  ...areas.map((area) => ({
+    "@type": "AdministrativeArea",
+    name: area.label,
+  })),
+  // Tên tỉnh cũ vẫn là cách gần như tất cả mọi người mô tả khu vực này.
+  { "@type": "AdministrativeArea", name: site.provinceLegacy },
+  { "@type": "AdministrativeArea", name: site.province },
+];
 
 const business = {
-  "@type": ["MedicalBusiness", "Physiotherapy", "LocalBusiness"],
+  "@type": ["MedicalClinic", "Physiotherapy", "MedicalBusiness"],
   "@id": businessId,
   name: site.name,
   alternateName: site.short,
-  description: seo.description,
+  description: seo.longDescription,
   url: site.url,
   image: `${site.url}/opengraph-image`,
-  telephone: toE164(site.hotline),
-  email: site.email,
+  logo: `${site.url}/logo.png`,
+  telephone,
+  ...(site.email ? { email: site.email } : {}),
+  ...(site.facebook && site.facebook !== "#" ? { sameAs: [site.facebook] } : {}),
   priceRange: "$$",
   currenciesAccepted: "VND",
+  paymentAccepted: "Tiền mặt, Chuyển khoản",
+  knowsLanguage: "vi-VN",
   medicalSpecialty: "PhysicalTherapy",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: address.street,
-    addressLocality: address.district,
-    addressRegion: address.city,
-    postalCode: address.postalCode,
-    addressCountry: address.country,
-  },
+  address: postalAddress,
   geo: {
     "@type": "GeoCoordinates",
     latitude: address.lat,
     longitude: address.lng,
   },
-  areaServed: {
-    "@type": "City",
-    name: address.city,
-  },
+  hasMap: address.mapUrl,
+  areaServed,
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -66,6 +92,13 @@ const business = {
       closes: openingHours.closes,
     },
   ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone,
+    contactType: "Đặt lịch",
+    areaServed: "VN",
+    availableLanguage: "Vietnamese",
+  },
   founder: {
     "@type": "Person",
     name: site.name,
@@ -75,6 +108,11 @@ const business = {
       name: c,
     })),
   },
+  availableService: services.map((service) => ({
+    "@type": "MedicalTherapy",
+    name: service.title,
+    description: service.body,
+  })),
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Dịch vụ điều trị",
@@ -112,17 +150,121 @@ const faqPage = {
   })),
 };
 
-const graph = {
-  "@context": "https://schema.org",
-  "@graph": [business, website, faqPage],
-};
-
-export function JsonLd() {
+function Graph({ nodes }: { nodes: object[] }) {
   return (
     <script
       type="application/ld+json"
       // Dữ liệu tĩnh trong repo, không có input người dùng.
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({ "@context": "https://schema.org", "@graph": nodes }),
+      }}
+    />
+  );
+}
+
+export function JsonLd() {
+  return <Graph nodes={[business, website, faqPage]} />;
+}
+
+/**
+ * Structured data cho một trang khu vực.
+ *
+ * Chỉ nhắc lại phòng khám bằng @id (không lặp cả khối), thêm Service gắn với
+ * đúng địa danh và BreadcrumbList để Google vẽ đường dẫn trong kết quả.
+ */
+export function AreaJsonLd({ area }: { area: Area }) {
+  const pageUrl = `${site.url}/khu-vuc/${area.slug}`;
+
+  const service = {
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    name: area.keyword,
+    description: area.intro,
+    serviceType: "Vật lý trị liệu và phục hồi chức năng",
+    provider: { "@id": businessId },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: area.label,
+    },
+    availableChannel: {
+      "@type": "ServiceChannel",
+      servicePhone: telephone,
+      serviceLocation: {
+        "@id": businessId,
+      },
+    },
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Trang chủ", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Khu vực phục vụ", item: `${site.url}/khu-vuc` },
+      { "@type": "ListItem", position: 3, name: area.label, item: pageUrl },
+    ],
+  };
+
+  const webPage = {
+    "@type": "WebPage",
+    "@id": pageUrl,
+    url: pageUrl,
+    name: area.keyword,
+    description: area.intro,
+    inLanguage: "vi-VN",
+    isPartOf: { "@id": `${site.url}/#website` },
+    about: { "@id": businessId },
+    breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+  };
+
+  return (
+    <Graph
+      nodes={[
+        { "@id": businessId, "@type": business["@type"], name: site.name, address: postalAddress },
+        webPage,
+        breadcrumb,
+        service,
+      ]}
+    />
+  );
+}
+
+/** Dùng cho trang danh sách /khu-vuc. */
+export function AreaIndexJsonLd() {
+  const pageUrl = `${site.url}/khu-vuc`;
+
+  return (
+    <Graph
+      nodes={[
+        {
+          "@type": "CollectionPage",
+          "@id": pageUrl,
+          url: pageUrl,
+          name: `Khu vực phục vụ — ${site.name}`,
+          description: `Vật lý trị liệu và phục hồi chức năng tại ${fullAddress}, nhận bệnh từ Giồng Trôm và các khu vực lân cận.`,
+          inLanguage: "vi-VN",
+          isPartOf: { "@id": `${site.url}/#website` },
+          about: { "@id": businessId },
+        },
+        {
+          "@type": "ItemList",
+          "@id": `${pageUrl}#list`,
+          itemListElement: areas.map((area, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: area.label,
+            url: `${site.url}/khu-vuc/${area.slug}`,
+          })),
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Trang chủ", item: site.url },
+            { "@type": "ListItem", position: 2, name: "Khu vực phục vụ", item: pageUrl },
+          ],
+        },
+      ]}
     />
   );
 }

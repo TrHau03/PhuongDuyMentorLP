@@ -22,7 +22,7 @@ export function Hero() {
         <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
           <div>
             <p className="label rise text-muted">
-              Vật lý trị liệu 1:1 · {site.city}
+              Vật lý trị liệu & phục hồi chức năng 1:1 · {site.city}
             </p>
 
             <h1 className="display rise mt-5 text-[38px] sm:text-[52px] lg:text-[60px]" style={{ animationDelay: "80ms" }}>
@@ -37,6 +37,9 @@ export function Hero() {
               className="rise mt-6 max-w-[46ch] text-[16px] leading-relaxed text-muted"
               style={{ animationDelay: "160ms" }}
             >
+              <strong className="font-medium text-ink">
+                Phòng vật lý trị liệu – phục hồi chức năng tại Thị trấn Giồng Trôm, Bến Tre.
+              </strong>{" "}
               Phương Duy kèm bạn từng buổi: đánh giá vận động trước khi chạm tay vào,
               giáo án viết riêng cho cơ thể bạn, và theo sát tới khi bạn tự tập được ở nhà.
             </p>

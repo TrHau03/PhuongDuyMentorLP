@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Be_Vietnam_Pro, JetBrains_Mono } from "next/font/google";
-import { JsonLd } from "@/components/JsonLd";
-import { seo, site } from "@/lib/site";
+import { address, seo, site } from "@/lib/site";
 import "./globals.css";
 
 const display = Bricolage_Grotesque({
@@ -22,7 +21,11 @@ const mono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-const title = `${site.name} — ${site.tagline}`;
+/**
+ * Từ khoá địa phương đứng trước tên thương hiệu: Google cắt tiêu đề quanh mốc
+ * ~60 ký tự, phần bị cắt nên là tên thương hiệu chứ không phải từ khoá.
+ */
+const title = `Vật lý trị liệu Giồng Trôm, Bến Tre — ${site.name}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -37,9 +40,8 @@ export const metadata: Metadata = {
   creator: site.name,
   publisher: site.name,
   category: "health",
-  alternates: {
-    canonical: "/",
-  },
+  // Canonical đặt ở từng trang, không đặt ở layout — nếu đặt ở đây mọi trang
+  // con quên khai báo sẽ tự nhận canonical "/" và biến mất khỏi kết quả.
   openGraph: {
     title,
     description: seo.shortDescription,
@@ -67,6 +69,16 @@ export const metadata: Metadata = {
   },
   // TODO: dán mã xác minh sau khi thêm site vào Google Search Console.
   // verification: { google: "..." },
+  /**
+   * Thẻ geo cũ. Google không dùng nữa nhưng Bing, Cốc Cốc và một số trang
+   * danh bạ doanh nghiệp trong nước vẫn đọc, nên giữ lại cho rẻ.
+   */
+  other: {
+    "geo.region": "VN-86",
+    "geo.placename": `${address.ward}, ${address.city}`,
+    "geo.position": `${address.lat};${address.lng}`,
+    ICBM: `${address.lat}, ${address.lng}`,
+  },
 };
 
 export const viewport: Viewport = {
@@ -80,10 +92,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="vi"
       className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <JsonLd />
-        {children}
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { regions, site } from "@/lib/site";
+import { address, fullAddress, regions, site } from "@/lib/site";
 
 const slots = ["Sáng 08:00–11:30", "Chiều 13:30–17:00", "Tối 17:00–20:00"];
 
@@ -63,8 +63,32 @@ export function Booking() {
                 </dd>
               </div>
               <div>
+                <dt className="label text-muted">Zalo</dt>
+                <dd className="mt-1">
+                  <a
+                    className="hover:text-brand"
+                    href={`https://zalo.me/${site.zalo}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {site.hotline}
+                  </a>
+                </dd>
+              </div>
+              <div>
                 <dt className="label text-muted">Địa chỉ</dt>
-                <dd className="mt-1">{site.address}</dd>
+                <dd className="mt-1 leading-relaxed">
+                  {fullAddress}
+                  <br />
+                  <a
+                    className="text-brand hover:underline underline-offset-4"
+                    href={address.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Chỉ đường Google Maps
+                  </a>
+                </dd>
               </div>
               <div>
                 <dt className="label text-muted">Giờ làm việc</dt>

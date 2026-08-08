@@ -1,11 +1,12 @@
 import Image from "next/image";
-import { nav, site } from "@/lib/site";
+import Link from "next/link";
+import { address, areas, fullAddress, nav, site } from "@/lib/site";
 
 export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-line bg-paper">
       <div className="mx-auto max-w-[1180px] px-5 py-12 md:px-8 md:py-16">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)]">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.8fr)_minmax(0,0.8fr)_minmax(0,1fr)]">
           <div>
             <Image
               src="/logo.png"
@@ -33,21 +34,61 @@ export function SiteFooter() {
             </ul>
           </nav>
 
+          {/* Liên kết nội bộ tới các trang khu vực — có mặt trên mọi trang nên
+              Google luôn tìm được chúng, không phụ thuộc vào sitemap. */}
+          <nav aria-label="Khu vực phục vụ">
+            <p className="label text-muted">Khu vực</p>
+            <ul className="mt-4 space-y-2.5">
+              {areas.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    href={`/khu-vuc/${area.slug}`}
+                    className="text-[14.5px] text-muted transition-colors hover:text-ink"
+                  >
+                    Vật lý trị liệu {area.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
           <div>
             <p className="label text-muted">Liên hệ</p>
             <ul className="mt-4 space-y-2.5 text-[14.5px]">
               <li>
-                <a href={`tel:${site.hotline.replace(/\s/g, "")}`} className="hover:text-brand">
+                <a href={`tel:${site.zalo}`} className="hover:text-brand">
                   {site.hotline}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${site.email}`} className="hover:text-brand">
-                  {site.email}
+                <a
+                  href={`https://zalo.me/${site.zalo}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand"
+                >
+                  Zalo {site.hotline}
                 </a>
               </li>
-              <li className="text-muted">{site.address}</li>
+              {site.email && (
+                <li>
+                  <a href={`mailto:${site.email}`} className="hover:text-brand">
+                    {site.email}
+                  </a>
+                </li>
+              )}
+              <li className="leading-relaxed text-muted">{fullAddress}</li>
               <li className="text-muted">{site.hours}</li>
+              <li>
+                <a
+                  href={address.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand hover:underline underline-offset-4"
+                >
+                  Chỉ đường Google Maps
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -57,7 +98,9 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {site.name}. Nội dung trên trang mang tính tham khảo,
             không thay thế chẩn đoán của bác sĩ.
           </p>
-          <p className="label">Vật lý trị liệu · Phục hồi chức năng</p>
+          <p className="label">
+            Vật lý trị liệu · Phục hồi chức năng · Giồng Trôm, Bến Tre
+          </p>
         </div>
       </div>
     </footer>
