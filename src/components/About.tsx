@@ -1,17 +1,17 @@
 import { Figure } from "./Figure";
 import { Reveal } from "./Reveal";
 import { Section } from "./Section";
-import { credentials } from "@/lib/site";
+import { carePrinciples } from "@/lib/site";
 
 export function About() {
   return (
     <Section
       id="gioi-thieu"
-      eyebrow="Người kèm bạn"
+      eyebrow="Người đồng hành"
       title={
         <>
-          Một người theo bạn từ buổi đầu
-          <br className="hidden sm:block" /> tới buổi cuối
+          Bắt đầu từ điều bạn
+          <br className="hidden sm:block" /> muốn làm dễ chịu hơn
         </>
       }
     >
@@ -20,14 +20,14 @@ export function About() {
           <div className="relative">
             <Figure
               id="portrait"
-              alt="Chân dung Phương Duy"
-              note="Chân dung Phương Duy, khổ dọc 3:4, nền phòng tập"
+              alt="Chân dung Phương Duy tại trung tâm chăm sóc sức khỏe"
+              note="Chân dung Phương Duy tại trung tâm"
               className="aspect-[3/4] rounded-card"
               sizes="(min-width: 1024px) 34vw, 100vw"
             />
             <div className="absolute -bottom-5 left-5 right-8 rounded-2xl border border-line bg-card p-4">
               <p className="display text-[18px]">Phương Duy</p>
-              <p className="label mt-1 text-muted">Kỹ thuật viên VLTL – PHCN</p>
+              <p className="label mt-1 text-muted">Trung tâm Chăm sóc Sức khỏe</p>
             </div>
           </div>
         </Reveal>
@@ -35,25 +35,23 @@ export function About() {
         <div className="space-y-6 lg:pt-2">
           <Reveal>
             <p className="text-[19px] leading-relaxed">
-              Tôi bắt đầu nghề này ở khoa phục hồi chức năng, nơi mỗi buổi có bốn bệnh nhân
-              cùng lúc và ai cũng nhận đúng bài tập giống nhau. Nhiều người đỡ đau, nhưng
-              vài tháng sau lại quay lại với đúng vấn đề cũ.
+              Mỗi người có một nhịp sống khác nhau: ngồi làm việc nhiều giờ, lái xe, bưng bê,
+              chăm con hoặc chỉ đơn giản là muốn vận động nhẹ nhàng hơn. Vì vậy, buổi hướng dẫn
+              cần bắt đầu từ điều bạn đang làm mỗi ngày.
             </p>
           </Reveal>
           <Reveal delay={80}>
             <p className="text-[16px] leading-relaxed text-muted">
-              Nên tôi mở phòng riêng và chọn cách làm ngược lại: mỗi khung giờ chỉ một người.
-              Buổi đầu tôi dành trọn 45 phút để nghe và đo, chưa vội trị liệu. Vì cùng là đau
-              thắt lưng, người ngồi văn phòng tám tiếng và người bê hàng mỗi ngày cần hai giáo
-              án khác hẳn nhau.
+              Trung tâm dành riêng mỗi khung giờ cho một người. Trong buổi đầu, chúng ta trao đổi
+              về thói quen, tư thế và những thời điểm cơ thể hay mỏi; rồi cùng chọn vài điều chỉnh
+              và vận động nhẹ phù hợp để bạn tự thực hành trong sinh hoạt.
             </p>
           </Reveal>
           <Reveal delay={140}>
             <p className="text-[16px] leading-relaxed text-muted">
-              Chữ “mentor” trong tên phòng là chủ đích. Việc của tôi không phải giữ bạn ở lại
-              lâu nhất có thể, mà là dạy bạn hiểu cơ thể mình đủ để không cần tôi nữa. Kết
-              thúc liệu trình, bạn cầm về một giáo án duy trì và biết dấu hiệu nào thì phải
-              quay lại.
+              Chữ “mentor” là cách trung tâm đồng hành: giải thích rõ, hướng dẫn vừa sức và giúp
+              bạn chủ động chăm cơ thể của mình. Trung tâm không thực hiện khám bệnh, chẩn đoán,
+              kê đơn hoặc thay thế cơ sở khám bệnh, chữa bệnh.
             </p>
           </Reveal>
 
@@ -61,23 +59,23 @@ export function About() {
             <div className="grid gap-4 pt-4 sm:grid-cols-3">
               <Figure
                 id="aboutRoom"
-                alt="Phòng trị liệu một kèm một"
-                note="Phòng trị liệu, góc rộng 4:3"
-                className="aspect-square rounded-card"
+                alt="Không gian chăm sóc sức khỏe dễ tiếp cận cho người lớn tuổi"
+                note="Không gian trung tâm với lối đi và ghế có điểm tựa"
+                className="aspect-[4/3] rounded-card"
                 sizes="(min-width: 640px) 20vw, 100vw"
               />
               <Figure
                 id="aboutHands"
-                alt="Trị liệu cột sống bằng tay"
-                note="Cận cảnh thao tác tay trên vai bệnh nhân"
-                className="aspect-square rounded-card"
+                alt="Người thân đồng hành cùng người lớn tuổi thực hành vận động nhẹ"
+                note="Vận động nhẹ nhàng cho vùng vai"
+                className="aspect-[4/3] rounded-card"
                 sizes="(min-width: 640px) 20vw, 100vw"
               />
               <Figure
                 id="aboutJoint"
-                alt="Khớp xương và sụn"
-                note="Minh hoạ khớp"
-                className="aspect-square rounded-card"
+                alt="Người lớn tuổi thực hành vận động chân khi ngồi"
+                note="Vận động nhẹ cho bàn chân và cổ chân"
+                className="aspect-[4/3] rounded-card"
                 sizes="(min-width: 640px) 20vw, 100vw"
               />
             </div>
@@ -85,10 +83,10 @@ export function About() {
 
           <Reveal delay={240}>
             <div className="mt-4 rounded-card border border-line bg-card p-6">
-              <p className="label text-muted">Bằng cấp & chứng chỉ</p>
+              <p className="label text-muted">Nguyên tắc tại trung tâm</p>
               <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                {credentials.map((c) => (
-                  <li key={c} className="flex gap-3 text-[14.5px] leading-snug">
+                {carePrinciples.map((principle) => (
+                  <li key={principle} className="flex gap-3 text-[14.5px] leading-snug">
                     <svg
                       aria-hidden
                       viewBox="0 0 16 16"
@@ -103,7 +101,7 @@ export function About() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    {c}
+                    {principle}
                   </li>
                 ))}
               </ul>

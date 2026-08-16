@@ -5,8 +5,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { address, areas, fullAddress, site } from "@/lib/site";
 
-const title = `Khu vực phục vụ — vật lý trị liệu Giồng Trôm, Bến Tre`;
-const description = `Phòng vật lý trị liệu tại Thị trấn Giồng Trôm. Nhận bệnh từ TP. Bến Tre, Ba Tri, Mỏ Cày, Châu Thành, Bình Đại, Thạnh Phú. Gọi/Zalo ${site.hotline}.`;
+const title = `Khu vực phục vụ — chăm sóc sức khỏe Giồng Trôm, Bến Tre`;
+const description = `Trung tâm chăm sóc sức khỏe tại Thị trấn Giồng Trôm. Phục vụ người dân TP. Bến Tre, Ba Tri, Mỏ Cày, Châu Thành, Bình Đại, Thạnh Phú. Gọi/Zalo ${site.hotline}.`;
 
 export const metadata: Metadata = {
   title: "Khu vực phục vụ",
@@ -49,12 +49,12 @@ export default function AreaIndexPage() {
         <section className="mx-auto max-w-[1180px] px-5 py-12 md:px-8 md:py-16">
           <p className="label text-muted">Khu vực phục vụ</p>
           <h1 className="display mt-4 max-w-[20ch] text-[34px] sm:text-[46px]">
-            Phòng ở Giồng Trôm, nhận bệnh cả vùng lân cận
+            Trung tâm ở Giồng Trôm, phục vụ người dân vùng lân cận
           </h1>
           <p className="mt-5 max-w-[58ch] text-[16px] leading-relaxed text-muted">
             Địa chỉ: {fullAddress}. Khu vực này trước đây là huyện Giồng Trôm, tỉnh Bến Tre. Người ở
-            xa được xếp lịch thưa hơn nhưng mỗi buổi làm kỹ hơn, kèm giáo án tập tại nhà có theo dõi
-            qua Zalo giữa các buổi.
+            xa nên nhắn trước để xác nhận khung giờ và nội dung hướng dẫn phù hợp. Trung tâm tập
+            trung vào thói quen vận động, không thay thế cơ sở khám bệnh, chữa bệnh.
           </p>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

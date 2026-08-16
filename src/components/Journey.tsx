@@ -7,9 +7,9 @@ export function Journey() {
     <Section
       id="lo-trinh"
       tone="brand"
-      eyebrow="Lộ trình"
-      title="Năm bước, theo đúng thứ tự này"
-      lead="Không bước nào bị nhảy cóc. Bạn luôn biết mình đang ở đâu và bước kế tiếp cần gì."
+      eyebrow="Buổi hướng dẫn"
+      title="Năm bước để bắt đầu hành trình vận động vừa sức"
+      lead="Người lớn tuổi và người thân luôn biết buổi trao đổi gồm những gì, đâu là phần trung tâm hỗ trợ và khi nào cần tìm đến chuyên môn y tế."
     >
       <ol className="relative">
         <span
@@ -42,14 +42,14 @@ export function Journey() {
       <Reveal delay={120}>
         <div className="mt-4 flex flex-wrap items-center gap-4 rounded-card border border-paper/15 bg-paper/5 p-6 md:ml-[120px]">
           <p className="min-w-0 flex-1 text-[15px] leading-relaxed text-paper/80">
-            Chưa chắc mình thuộc nhóm nào? Buổi đánh giá đầu tiên sẽ trả lời, kể cả khi kết luận
-            là bạn cần bác sĩ chứ chưa cần trị liệu.
+            Chưa chắc trung tâm có phù hợp? Hãy trao đổi trước qua Zalo. Với nhu cầu cần khám,
+            chẩn đoán hoặc điều trị y tế, trung tâm sẽ khuyến nghị bạn đến cơ sở phù hợp.
           </p>
           <a
             href="#dat-lich"
             className="inline-flex items-center rounded-full bg-saffron px-5 py-3 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
           >
-            Đặt buổi đánh giá
+            Đặt buổi trao đổi
           </a>
         </div>
       </Reveal>

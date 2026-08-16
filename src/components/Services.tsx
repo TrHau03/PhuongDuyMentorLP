@@ -7,9 +7,9 @@ export function Services() {
   return (
     <Section
       id="dieu-tri"
-      eyebrow="Danh mục điều trị"
-      title="Những ca thường gặp ở phòng"
-      lead="Nếu vấn đề của bạn không nằm trong danh sách, nhắn hỏi trước. Ngoài chuyên môn thì tôi nói thẳng và giới thiệu bạn tới đúng người."
+      eyebrow="Nội dung hỗ trợ"
+      title="Hỗ trợ vận động để duy trì sinh hoạt hằng ngày"
+      lead="Nội dung ưu tiên cho người lớn tuổi và người suy giảm vận động: các cử động cơ bản, đi lại, điểm tựa và không gian sống. Với nhu cầu điều trị bệnh lý, trung tâm sẽ khuyến nghị tìm đến cơ sở y tế phù hợp."
     >
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (

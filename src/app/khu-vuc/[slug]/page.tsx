@@ -9,8 +9,8 @@ import { address, areas, faqs, fullAddress, seo, services, site } from "@/lib/si
 /**
  * Trang khu vực: /khu-vuc/<slug>
  *
- * Mỗi trang nhắm một cụm từ khoá địa phương ("vật lý trị liệu Ba Tri"...) và
- * phải có nội dung riêng — nội dung dùng chung chỉ là phần dịch vụ và liên hệ.
+ * Mỗi trang nhắm một cụm từ khoá địa phương về chăm sóc sức khỏe và có nội
+ * dung riêng — phần dùng chung chỉ là nội dung hỗ trợ và liên hệ.
  * Tất cả trang được prerender ở build time nên Google tải về nhanh.
  */
 
@@ -32,15 +32,15 @@ export async function generateMetadata({
   const title = `${area.keyword} — ${site.name}`;
   // Giữ dưới ~160 ký tự: từ khoá + cung đường + số gọi. Đoạn intro dài dùng cho
   // JSON-LD và phần thân trang, không nhét vào meta description.
-  const description = `${area.keyword}. ${area.travel}. Kèm 1:1, đánh giá vận động 45 phút. Gọi/Zalo ${site.hotline}.`;
+  const description = `${area.keyword}. ${area.travel}. Hướng dẫn vận động 1:1, buổi trao đổi khoảng 45 phút. Gọi/Zalo ${site.hotline}.`;
 
   return {
     title: area.keyword,
     description,
     keywords: [
-      `vật lý trị liệu ${area.label}`,
-      `phục hồi chức năng ${area.label}`,
-      `phòng khám vật lý trị liệu ${area.label}`,
+      `chăm sóc sức khỏe ${area.label}`,
+      `hướng dẫn vận động ${area.label}`,
+      `chăm sóc cổ vai gáy ${area.label}`,
       ...seo.keywords.slice(0, 6),
     ],
     alternates: { canonical: `/khu-vuc/${area.slug}` },
@@ -114,7 +114,7 @@ export default async function AreaPage({ params }: PageProps<"/khu-vuc/[slug]">)
                   href="/#dat-lich"
                   className="inline-flex items-center rounded-full bg-brand px-6 py-3.5 text-[15px] font-medium text-paper transition-colors hover:bg-brand-soft"
                 >
-                  Đặt buổi đánh giá 45 phút
+                  Đặt buổi trao đổi 45 phút
                 </Link>
                 <a
                   href={`tel:${site.zalo}`}
@@ -126,7 +126,7 @@ export default async function AreaPage({ params }: PageProps<"/khu-vuc/[slug]">)
             </div>
 
             <aside className="rounded-card border border-line bg-card p-6 sm:p-8">
-              <p className="label text-muted">Đi tới phòng trị liệu</p>
+              <p className="label text-muted">Đi tới trung tâm</p>
               <p className="mt-4 text-[15px] leading-relaxed">{area.travel}.</p>
               <dl className="mt-6 space-y-4 border-t border-line pt-6 text-[14.5px]">
                 <div>
@@ -138,11 +138,11 @@ export default async function AreaPage({ params }: PageProps<"/khu-vuc/[slug]">)
                   <dd className="mt-1">{site.hours}</dd>
                 </div>
                 <div>
-                  <dt className="label text-muted">Trị liệu tại nhà</dt>
+                  <dt className="label text-muted">Lưu ý trước khi tới</dt>
                   <dd className="mt-1">
                     {area.homeVisit
-                      ? "Có — cho ca chưa tự di chuyển được."
-                      : "Nhắn Zalo để hỏi theo tuyến đường trong ngày."}
+                      ? "Nhắn Zalo để được xác nhận nội dung và khung giờ phù hợp."
+                      : "Nhắn Zalo để xác nhận trung tâm có phù hợp với nhu cầu của bạn."}
                   </dd>
                 </div>
               </dl>
@@ -161,7 +161,7 @@ export default async function AreaPage({ params }: PageProps<"/khu-vuc/[slug]">)
         <section className="border-t border-line py-14 md:py-20">
           <div className="mx-auto max-w-[1180px] px-5 md:px-8">
             <h2 className="display text-[26px] sm:text-[32px]">
-              Điều trị gì cho người ở {area.label}
+              Nội dung hỗ trợ cho người ở {area.label}
             </h2>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((s) => (

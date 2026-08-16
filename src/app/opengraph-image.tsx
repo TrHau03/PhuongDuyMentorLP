@@ -13,19 +13,12 @@ export const contentType = "image/png";
  */
 export default async function Image() {
   const fontDir = join(process.cwd(), "src/app/_og");
-  const [semibold, bold, banner] = await Promise.all([
+  const [semibold, bold, portrait] = await Promise.all([
     readFile(join(fontDir, "BeVietnamPro-SemiBold.ttf")),
     readFile(join(fontDir, "BeVietnamPro-Bold.ttf")),
-    readFile(join(process.cwd(), "public/banner.png")),
+    readFile(join(process.cwd(), "public/images/phuong-duy-care.png")),
   ]);
-  const bannerSrc = `data:image/png;base64,${banner.toString("base64")}`;
-
-  // Banner gốc 2032×774 và bản thân nó đã đầy chữ. Phóng 1.85× rồi neo trái để
-  // khung hình chỉ còn phần ảnh chụp thật (~1/3 bên trái), cắt trọn khối
-  // infographic — nếu không, chữ banner chọi chữ OG.
-  const bannerZoom = 1.85;
-  const bannerW = Math.round(2032 * bannerZoom);
-  const bannerH = Math.round(774 * bannerZoom);
+  const portraitSrc = `data:image/png;base64,${portrait.toString("base64")}`;
 
   return new ImageResponse(
     <div
@@ -39,20 +32,23 @@ export default async function Image() {
         fontFamily: "Be Vietnam Pro",
       }}
     >
-      {/* Banner làm nền, phóng to và neo trái — xem chú thích bannerZoom. */}
+      {/* Chân dung Phương Duy được làm nền nhẹ cho ảnh chia sẻ. */}
       <img
-        src={bannerSrc}
-        width={bannerW}
-        height={bannerH}
+        src={portraitSrc}
+        alt=""
+        width={660}
+        height={788}
         style={{
           position: "absolute",
-          top: Math.round((size.height - bannerH) / 2),
-          left: 0,
-          width: bannerW,
-          height: bannerH,
+          top: -78,
+          right: -12,
+          width: 660,
+          height: 788,
+          objectFit: "cover",
+          objectPosition: "center",
         }}
       />
-      {/* Scrim navy: dìm nền xuống mức texture để chữ OG nổi. */}
+      {/* Scrim navy giữ chữ OG dễ đọc. */}
       <div
         style={{
           position: "absolute",

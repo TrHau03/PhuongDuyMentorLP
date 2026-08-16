@@ -21,26 +21,20 @@ export type ImageKey =
   | "storyHa";
 
 export const IMAGES: Record<ImageKey, string | null> = {
-  portrait: "/pd.png", // Chân dung Phương Duy, đã tách nền
-  aboutRoom: "/model-2.png", // Phòng trị liệu, dựng isometric
-  aboutHands: "/model.png", // Bàn tay đỡ đốt sống
-  aboutJoint: "/model-1.png", // Khớp xương
-  // Ảnh chụp thật từng ca điều trị — chưa có, giữ null để hiện khung nhắc.
-  serviceDisc: null,
-  serviceNeck: null,
-  serviceSpine: null,
-  serviceSport: null,
-  servicePostOp: null,
-  serviceScoliosis: null,
-  storyAnh: null,
-  storyMinh: null,
-  storyHa: null,
+  portrait: "/images/phuong-duy-care.png", // Chân dung Phương Duy do trung tâm cung cấp
+  aboutRoom: "/images/senior-accessible-space.png",
+  aboutHands: "/images/senior-gentle-guidance.png",
+  aboutJoint: "/images/senior-seated-foot-movement.png",
+  serviceDisc: "/images/senior-sit-stand.png",
+  serviceNeck: "/images/senior-neck-rest.png",
+  serviceSpine: "/images/senior-balance-handrail.png",
+  serviceSport: "/images/senior-walk-support.png",
+  servicePostOp: "/images/senior-seated-motion.png",
+  serviceScoliosis: "/images/senior-home-support.png",
+  storyAnh: "/images/senior-independent-stand.png",
+  storyMinh: "/images/senior-walk-with-family.png",
+  storyHa: "/images/senior-home-setup.png",
 };
 
-/** Ảnh tách nền và hình 3D phải render object-contain, không được cắt cụt. */
-export const CONTAIN: ReadonlySet<ImageKey> = new Set<ImageKey>([
-  "portrait",
-  "aboutRoom",
-  "aboutHands",
-  "aboutJoint",
-]);
+/** Các ảnh hiện tại là ảnh ngang/ảnh chụp, đều dùng object-cover. */
+export const CONTAIN: ReadonlySet<ImageKey> = new Set<ImageKey>();

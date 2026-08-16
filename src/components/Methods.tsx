@@ -6,9 +6,9 @@ export function Methods() {
   return (
     <Section
       id="phuong-phap"
-      eyebrow="Phương pháp"
-      title="Máy chỉ là công cụ. Phần chính là tay và bài tập."
-      lead="Thiết bị dùng để bạn đủ dễ chịu mà tập được. Thứ giữ kết quả lại lâu dài luôn là vận động."
+      eyebrow="Cách đồng hành"
+      title="Mỗi cử động đều bắt đầu từ sự an tâm"
+      lead="Mỗi buổi ưu tiên lắng nghe người tham gia và người thân, hướng dẫn vận động nhẹ cùng những điều chỉnh đơn giản trong sinh hoạt. Không thay thế việc khám bệnh, chữa bệnh."
     >
       <div className="grid gap-px overflow-hidden rounded-card border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
         {methods.map((m, i) => (

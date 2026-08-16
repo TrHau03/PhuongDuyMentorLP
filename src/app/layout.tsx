@@ -1,31 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Be_Vietnam_Pro, JetBrains_Mono } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import { address, seo, site } from "@/lib/site";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
-  variable: "--font-display",
+const notoSans = Noto_Sans({
+  variable: "--font-noto-sans",
   subsets: ["latin", "vietnamese"],
-  weight: ["500", "600", "700"],
-});
-
-const body = Be_Vietnam_Pro({
-  variable: "--font-body",
-  subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600"],
-});
-
-const mono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin", "vietnamese"],
-  weight: ["400", "500"],
+  display: "swap",
 });
 
 /**
  * Từ khoá địa phương đứng trước tên thương hiệu: Google cắt tiêu đề quanh mốc
  * ~60 ký tự, phần bị cắt nên là tên thương hiệu chứ không phải từ khoá.
  */
-const title = `Vật lý trị liệu Giồng Trôm, Bến Tre — ${site.name}`;
+const title = `Trung tâm Chăm sóc Sức khỏe Giồng Trôm, Bến Tre — ${site.name}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -39,6 +27,11 @@ export const metadata: Metadata = {
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
   publisher: site.name,
+  icons: {
+    icon: [{ url: "/logo.png", type: "image/png", sizes: "1180x1195" }],
+    shortcut: ["/logo.png"],
+    apple: [{ url: "/logo.png", type: "image/png", sizes: "180x180" }],
+  },
   category: "health",
   // Canonical đặt ở từng trang, không đặt ở layout — nếu đặt ở đây mọi trang
   // con quên khai báo sẽ tự nhận canonical "/" và biến mất khỏi kết quả.
@@ -90,7 +83,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="vi"
-      className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
+      className={`${notoSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

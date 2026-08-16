@@ -19,11 +19,13 @@
   --color-clay: #c4553b;
   --color-line: #d2dae8;
 
-  --font-display: var(--font-display), system-ui, sans-serif;
-  --font-sans: var(--font-body), system-ui, sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, monospace;
-
   --radius-card: 18px;
+}
+
+/* Dùng một họ chữ Noto Sans xuyên suốt để tiếng Việt rõ ràng, nhất quán. */
+@theme inline {
+  --font-sans: var(--font-noto-sans);
+  --font-mono: var(--font-noto-sans);
 }
 
 html {
@@ -34,7 +36,7 @@ html {
 body {
   background: var(--color-paper);
   color: var(--color-ink);
-  font-family: var(--font-sans);
+  font-family: var(--font-noto-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -51,16 +53,17 @@ body {
 
 /* Nhãn kỹ thuật: eyebrow, số liệu, chú thích */
 .label {
-  font-family: var(--font-mono);
+  font-family: var(--font-noto-sans), system-ui, sans-serif;
   font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 /* Tiêu đề: display face, siết chặt tracking ở cỡ lớn */
 .display {
-  font-family: var(--font-display);
-  font-weight: 600;
+  font-family: var(--font-noto-sans), system-ui, sans-serif;
+  font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 0.98;
 }

@@ -46,11 +46,12 @@ export function Booking() {
           <div>
             <p className="label text-muted">Đặt lịch</p>
             <h2 className="display mt-4 text-[30px] sm:text-[38px]">
-              Kể tôi nghe bạn đang vướng chỗ nào
+              Kể trung tâm nghe điều người thân đang cần hỗ trợ
             </h2>
             <p className="mt-4 text-[15.5px] leading-relaxed text-muted">
-              Gửi thông tin, tôi gọi lại trong ngày làm việc để xác nhận giờ. Nếu tình trạng của
-              bạn cần bác sĩ trước, tôi sẽ nói ngay trong cuộc gọi đó.
+              Gửi thông tin, trung tâm gọi lại trong ngày làm việc để xác nhận giờ. Người thân có
+              thể cùng tham gia buổi trao đổi. Nếu nhu cầu cần khám hoặc điều trị y tế, trung tâm
+              sẽ khuyến nghị bạn đến cơ sở phù hợp.
             </p>
 
             <dl className="mt-8 space-y-4 border-t border-line pt-8 text-[14.5px]">
@@ -110,8 +111,8 @@ export function Booking() {
               </svg>
               <h3 className="display mt-5 text-[26px]">Đã nhận thông tin</h3>
               <p className="mt-3 max-w-[40ch] text-[15px] leading-relaxed text-paper/75">
-                Tôi sẽ gọi lại từ số {site.hotline} để xác nhận giờ. Trong lúc chờ, bạn giữ tư thế
-                thoải mái nhất và tránh bài tập nào làm đau tăng lên.
+                Trung tâm sẽ gọi lại từ số {site.hotline} để xác nhận giờ. Trong lúc chờ, chỉ nên
+                thực hiện những vận động quen thuộc, nhẹ nhàng và khiến bạn thấy thoải mái.
               </p>
               <button
                 type="button"
@@ -139,7 +140,7 @@ export function Booking() {
                 />
               </Field>
 
-              <Field label="Vùng đang đau" className="sm:col-span-2">
+              <Field label="Vùng hoặc hoạt động cần hỗ trợ" className="sm:col-span-2">
                 <select name="region" defaultValue={regions[4].label} className={inputClass}>
                   {regions.map((r) => (
                     <option key={r.id}>{r.label}</option>
@@ -160,11 +161,11 @@ export function Booking() {
                 </select>
               </Field>
 
-              <Field label="Mô tả ngắn tình trạng" className="sm:col-span-2">
+              <Field label="Mô tả ngắn nhu cầu của người thân" className="sm:col-span-2">
                 <textarea
                   name="note"
                   rows={3}
-                  placeholder="Đau từ bao giờ, đau khi làm gì, đã chụp phim chưa…"
+                  placeholder="Ngồi–đứng, đi lại hoặc sinh hoạt nào đang cần hỗ trợ…"
                   className={`${inputClass} resize-y`}
                 />
               </Field>

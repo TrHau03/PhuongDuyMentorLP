@@ -14,8 +14,8 @@ export function ServiceAreas() {
     <Section
       id="khu-vuc"
       eyebrow="Khu vực phục vụ"
-      title={<>Phòng ở Giồng Trôm, nhận bệnh cả vùng lân cận</>}
-      lead={`Địa chỉ: ${fullAddress}. Trước đây thuộc huyện Giồng Trôm, tỉnh Bến Tre. Bà con ở TP. Bến Tre, Ba Tri, Mỏ Cày, Châu Thành, Bình Đại và Thạnh Phú đều đang tới đây trị liệu.`}
+      title={<>Trung tâm ở Giồng Trôm, phục vụ người dân vùng lân cận</>}
+      lead={`Địa chỉ: ${fullAddress}. Trước đây thuộc huyện Giồng Trôm, tỉnh Bến Tre. Người ở TP. Bến Tre, Ba Tri, Mỏ Cày, Châu Thành, Bình Đại và Thạnh Phú có thể đặt trước để trao đổi về nhu cầu hướng dẫn vận động.`}
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {areas.map((area, i) => (

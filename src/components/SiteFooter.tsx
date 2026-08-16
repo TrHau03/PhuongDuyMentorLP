@@ -17,7 +17,7 @@ export function SiteFooter() {
             />
             <p className="display text-[22px]">{site.name}</p>
             <p className="mt-3 max-w-[38ch] text-[14.5px] leading-relaxed text-muted">
-              {site.tagline}. Mục tiêu của mỗi liệu trình là tới ngày bạn không cần quay lại.
+              {site.tagline}. Đồng hành cùng bạn xây dựng những thói quen vận động vừa sức, dễ duy trì.
             </p>
           </div>
 
@@ -45,7 +45,7 @@ export function SiteFooter() {
                     href={`/khu-vuc/${area.slug}`}
                     className="text-[14.5px] text-muted transition-colors hover:text-ink"
                   >
-                    Vật lý trị liệu {area.label}
+                    Chăm sóc sức khỏe {area.label}
                   </Link>
                 </li>
               ))}
@@ -96,10 +96,10 @@ export function SiteFooter() {
         <div className="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-[12.5px] text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}. Nội dung trên trang mang tính tham khảo,
-            không thay thế chẩn đoán của bác sĩ.
+            không thay thế việc khám, chẩn đoán hoặc điều trị của cơ sở y tế.
           </p>
           <p className="label">
-            Vật lý trị liệu · Phục hồi chức năng · Giồng Trôm, Bến Tre
+            Chăm sóc sức khỏe · Hướng dẫn vận động · Giồng Trôm, Bến Tre
           </p>
         </div>
       </div>

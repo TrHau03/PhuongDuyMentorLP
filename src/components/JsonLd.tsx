@@ -1,7 +1,6 @@
 import {
   address,
   areas,
-  credentials,
   faqs,
   fullAddress,
   openingHours,
@@ -15,11 +14,11 @@ import {
  * Structured data (JSON-LD) cho Google.
  *
  * Trang chủ dùng <JsonLd />, trang khu vực dùng <AreaJsonLd area={...} />.
- * Hai bên trỏ về cùng một @id phòng khám nên Google hiểu đây là một cơ sở duy
- * nhất có nhiều trang, không phải nhiều cơ sở khác nhau.
+ * Các trang trỏ về cùng một @id trung tâm để Google hiểu đây là một đơn vị
+ * duy nhất có nhiều trang, không phải nhiều cơ sở khác nhau.
  *
  * Khối trên trang chủ:
- *  - MedicalClinic   → hồ sơ phòng khám, phục vụ local SEO / Google Maps
+ *  - LocalBusiness   → hồ sơ trung tâm, phục vụ local SEO / Google Maps
  *  - WebSite         → gắn tên site vào kết quả tìm kiếm
  *  - FAQPage         → mở rộng câu hỏi ngay dưới kết quả
  *
@@ -60,14 +59,19 @@ const areaServed = [
 ];
 
 const business = {
-  "@type": ["MedicalClinic", "Physiotherapy", "MedicalBusiness"],
+  "@type": "LocalBusiness",
   "@id": businessId,
   name: site.name,
   alternateName: site.short,
   description: seo.longDescription,
   url: site.url,
   image: `${site.url}/opengraph-image`,
-  logo: `${site.url}/logo.png`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${site.url}/logo.png`,
+    width: 1180,
+    height: 1195,
+  },
   telephone,
   ...(site.email ? { email: site.email } : {}),
   ...(site.facebook && site.facebook !== "#" ? { sameAs: [site.facebook] } : {}),
@@ -75,7 +79,6 @@ const business = {
   currenciesAccepted: "VND",
   paymentAccepted: "Tiền mặt, Chuyển khoản",
   knowsLanguage: "vi-VN",
-  medicalSpecialty: "PhysicalTherapy",
   address: postalAddress,
   geo: {
     "@type": "GeoCoordinates",
@@ -99,27 +102,18 @@ const business = {
     areaServed: "VN",
     availableLanguage: "Vietnamese",
   },
-  founder: {
-    "@type": "Person",
-    name: site.name,
-    jobTitle: "Kỹ thuật viên Vật lý trị liệu – Phục hồi chức năng",
-    hasCredential: credentials.map((c) => ({
-      "@type": "EducationalOccupationalCredential",
-      name: c,
-    })),
-  },
   availableService: services.map((service) => ({
-    "@type": "MedicalTherapy",
+    "@type": "Service",
     name: service.title,
     description: service.body,
   })),
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Dịch vụ điều trị",
+    name: "Nội dung hỗ trợ sức khỏe",
     itemListElement: services.map((service) => ({
       "@type": "Offer",
       itemOffered: {
-        "@type": "MedicalTherapy",
+        "@type": "Service",
         name: service.title,
         description: service.body,
       },
@@ -169,7 +163,7 @@ export function JsonLd() {
 /**
  * Structured data cho một trang khu vực.
  *
- * Chỉ nhắc lại phòng khám bằng @id (không lặp cả khối), thêm Service gắn với
+ * Chỉ nhắc lại trung tâm bằng @id (không lặp cả khối), thêm Service gắn với
  * đúng địa danh và BreadcrumbList để Google vẽ đường dẫn trong kết quả.
  */
 export function AreaJsonLd({ area }: { area: Area }) {
@@ -180,7 +174,7 @@ export function AreaJsonLd({ area }: { area: Area }) {
     "@id": `${pageUrl}#service`,
     name: area.keyword,
     description: area.intro,
-    serviceType: "Vật lý trị liệu và phục hồi chức năng",
+    serviceType: "Chăm sóc sức khỏe và hướng dẫn vận động",
     provider: { "@id": businessId },
     areaServed: {
       "@type": "AdministrativeArea",
@@ -241,7 +235,7 @@ export function AreaIndexJsonLd() {
           "@id": pageUrl,
           url: pageUrl,
           name: `Khu vực phục vụ — ${site.name}`,
-          description: `Vật lý trị liệu và phục hồi chức năng tại ${fullAddress}, nhận bệnh từ Giồng Trôm và các khu vực lân cận.`,
+          description: `Chăm sóc sức khỏe và hướng dẫn vận động tại ${fullAddress}, phục vụ người dân Giồng Trôm và các khu vực lân cận.`,
           inLanguage: "vi-VN",
           isPartOf: { "@id": `${site.url}/#website` },
           about: { "@id": businessId },

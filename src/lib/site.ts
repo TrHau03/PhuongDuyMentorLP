@@ -13,12 +13,13 @@ export const SITE_URL = (
 export const site = {
   name: "Phương Duy Mentor",
   short: "PD Mentor",
-  tagline: "Vật lý trị liệu & phục hồi chức năng tại Giồng Trôm, Bến Tre",
+  tagline: "Trung tâm chăm sóc sức khỏe & hướng dẫn vận động tại Giồng Trôm",
   url: SITE_URL,
   hotline: "0835 632 227",
   zalo: "0835632227",
   email: "", // Chưa có email công khai — để rỗng thì trang tự ẩn, không bịa địa chỉ giả.
-  address: "Số 12, Khu phố 1, Thị trấn Giồng Trôm, xã Giồng Trôm, tỉnh Vĩnh Long",
+  address:
+    "Số 12, Khu phố 1, Thị trấn Giồng Trôm, xã Giồng Trôm, tỉnh Vĩnh Long",
   hours: "Thứ 2 – Thứ 7 · 08:00 – 20:00",
   facebook: "#", // TODO: link Facebook/Zalo OA thật — Google dùng làm tín hiệu sameAs.
   /** Nhãn địa phương ngắn, dùng ở hero và các dòng eyebrow. */
@@ -44,10 +45,10 @@ export const address = {
   region: "Vĩnh Long",
   postalCode: "93000",
   country: "VN",
-  lat: 10.14824,
-  lng: 106.50779,
+  lat: 10.1481436,
+  lng: 106.5077452,
   /** Link Google Maps của phòng khám — dùng cho JSON-LD hasMap và nút chỉ đường. */
-  mapUrl: "https://www.google.com/maps/search/?api=1&query=10.148240,106.507790",
+  mapUrl: "https://maps.app.goo.gl/xYXEGzLy4xK9Ys8FA",
 };
 
 /** Chuỗi địa chỉ đầy đủ, một nguồn duy nhất cho footer / form / JSON-LD. */
@@ -76,46 +77,39 @@ export const openingHours = {
 export const seo = {
   /** <meta description>. Giữ dưới ~160 ký tự, nếu dài hơn Google cắt giữa câu. */
   description:
-    "Phòng vật lý trị liệu – phục hồi chức năng tại Thị trấn Giồng Trôm, Bến Tre. Kèm 1:1, đánh giá vận động 45 phút, giáo án riêng. Gọi/Zalo 0835 632 227.",
+    "Trung tâm hỗ trợ vận động hằng ngày cho người cao tuổi và người suy giảm vận động tại Giồng Trôm, Bến Tre. Hướng dẫn 1:1, có người thân cùng tham gia.",
   /** Bản dài, chỉ dùng cho structured data — chỗ này không bị cắt. */
   longDescription:
-    "Phòng vật lý trị liệu – phục hồi chức năng tại Thị trấn Giồng Trôm, Bến Tre. Kèm 1:1, đánh giá vận động 45 phút, giáo án riêng theo cơ thể bạn. Điều trị thoát vị đĩa đệm, đau cổ vai gáy, thoái hoá khớp gối, chấn thương thể thao, phục hồi sau mổ và sau đột quỵ. Nhận trị liệu tại nhà trong xã Giồng Trôm và các xã lân cận.",
+    "Phương Duy Mentor là trung tâm chăm sóc sức khỏe tại Thị trấn Giồng Trôm, Bến Tre, tập trung hỗ trợ vận động hằng ngày cho người cao tuổi và người suy giảm vận động. Mỗi buổi là không gian trao đổi, thực hành vận động nhẹ, cách ngồi–đứng, giữ thăng bằng và di chuyển phù hợp với sinh hoạt; người thân có thể cùng tham gia. Trung tâm không khám bệnh, chẩn đoán, kê đơn hoặc thay thế cơ sở khám bệnh, chữa bệnh. Với tình trạng liên quan bệnh lý hoặc cần điều trị chuyên môn, trung tâm khuyến nghị thăm khám tại cơ sở y tế phù hợp.",
   shortDescription:
-    "Vật lý trị liệu 1:1 tại Giồng Trôm, Bến Tre. Đánh giá vận động, trị liệu bằng tay, giáo án cá nhân hoá.",
+    "Hỗ trợ vận động hằng ngày cho người cao tuổi tại Giồng Trôm, Bến Tre.",
   /**
    * Keywords không còn là yếu tố xếp hạng của Google, nhưng vẫn giữ để Bing/Cốc Cốc
    * đọc và để cả nhóm thống nhất bộ từ khoá đang nhắm.
    * Thứ tự: từ khoá địa phương trước, từ khoá bệnh lý sau.
    */
   keywords: [
-    "vật lý trị liệu Giồng Trôm",
-    "phục hồi chức năng Giồng Trôm",
-    "vật lý trị liệu Bến Tre",
-    "phục hồi chức năng Bến Tre",
-    "phòng khám vật lý trị liệu Bến Tre",
-    "vật lý trị liệu tại nhà Bến Tre",
-    "kỹ thuật viên vật lý trị liệu Giồng Trôm",
-    "trị liệu đau lưng Bến Tre",
-    "thoát vị đĩa đệm",
-    "đau thần kinh tọa",
-    "đau cổ vai gáy",
-    "thoái hoá cột sống",
-    "thoái hoá khớp gối",
-    "trị liệu bằng tay",
-    "manual therapy",
-    "chấn thương thể thao",
-    "phục hồi sau mổ dây chằng",
-    "phục hồi sau đột quỵ",
-    "cong vẹo cột sống",
-    "vật lý trị liệu 1:1",
+    "trung tâm chăm sóc sức khỏe Giồng Trôm",
+    "chăm sóc sức khỏe Giồng Trôm",
+    "hỗ trợ vận động người cao tuổi Giồng Trôm",
+    "hướng dẫn vận động người cao tuổi Bến Tre",
+    "hỗ trợ sinh hoạt người suy giảm vận động",
+    "hướng dẫn vận động Giồng Trôm",
+    "vận động cho người lớn tuổi",
+    "thăng bằng và đi lại người cao tuổi",
+    "hướng dẫn ngồi đứng an toàn",
+    "hỗ trợ người thân chăm sóc vận động",
+    "vận động nhẹ tại nhà",
+    "vận động hỗ trợ xương khớp người cao tuổi",
+    "hướng dẫn vận động 1:1",
   ],
 };
 
 export const nav = [
   { href: "/#gioi-thieu", label: "Về Phương Duy" },
-  { href: "/#dieu-tri", label: "Điều trị" },
-  { href: "/#phuong-phap", label: "Phương pháp" },
-  { href: "/#lo-trinh", label: "Lộ trình" },
+  { href: "/#dieu-tri", label: "Nội dung hỗ trợ" },
+  { href: "/#phuong-phap", label: "Cách đồng hành" },
+  { href: "/#lo-trinh", label: "Buổi hướng dẫn" },
   { href: "/#khu-vuc", label: "Khu vực" },
   { href: "/#cau-chuyen", label: "Câu chuyện" },
   { href: "/#dat-lich", label: "Liên hệ" },
@@ -140,107 +134,104 @@ export type Area = {
 
 /**
  * Các khu vực phục vụ — mỗi mục sinh ra một trang /khu-vuc/<slug>.
- *
- * Quy tắc để Google không xem là "doorway page": mỗi trang phải có nội dung
- * thật sự khác nhau (cung đường, nhóm bệnh hay gặp, cách sắp lịch). Đừng nhân
- * bản một đoạn văn rồi chỉ đổi tên địa danh — Google phạt đúng kiểu đó.
+ * Mỗi trang có thông tin đi lại và cách đặt lịch riêng, không chỉ thay địa danh.
  */
 export const areas: Area[] = [
   {
     slug: "giong-trom",
     label: "Giồng Trôm",
-    keyword: "Vật lý trị liệu tại Giồng Trôm",
-    travel: "Phòng trị liệu nằm ngay Khu phố 1, Thị trấn Giồng Trôm",
+    keyword: "Chăm sóc sức khỏe & hướng dẫn vận động tại Giồng Trôm",
+    travel: "Trung tâm nằm ngay Khu phố 1, Thị trấn Giồng Trôm",
     intro:
-      "Phòng đặt ngay trung tâm thị trấn nên bà con trong xã đi xe máy vài phút là tới. Đây cũng là nơi nhận phần lớn ca sau mổ và sau đột quỵ cần tập đều nhiều buổi trong tuần.",
+      "Trung tâm nằm ngay khu vực thị trấn, phù hợp cho người muốn trao đổi về tình trạng mỏi cổ vai gáy, lưng hoặc thói quen vận động hằng ngày.",
     points: [
       "Đi bộ hoặc xe máy từ chợ Giồng Trôm dưới 5 phút, có chỗ để xe.",
-      "Ca cần tập dày 3–5 buổi/tuần ưu tiên xếp cho người trong xã, giờ linh động cả buổi tối.",
-      "Trị liệu tại nhà cho người chưa tự di chuyển được, đi trong ngày.",
+      "Khung giờ được xác nhận trước qua Zalo để bạn chủ động thời gian.",
+      "Buổi đầu ưu tiên nghe nhu cầu sinh hoạt và hướng dẫn các động tác phù hợp, nhẹ nhàng.",
     ],
-    homeVisit: true,
+    homeVisit: false,
   },
   {
     slug: "ben-tre",
     label: "TP. Bến Tre",
-    keyword: "Vật lý trị liệu cho người ở TP. Bến Tre",
+    keyword: "Chăm sóc cổ vai gáy & vận động cho người ở TP. Bến Tre",
     travel: "Khoảng 17 km theo ĐT885, chạy xe máy chừng 30 phút",
     intro:
-      "Nhiều người ở thành phố tìm chỗ trị liệu 1:1 thay vì phòng đông người mỗi ca chục bệnh nhân. Đường ĐT885 chạy thẳng, đi về trong buổi được nên không cần nghỉ làm cả ngày.",
+      "Đường ĐT885 chạy thẳng nên người ở thành phố có thể chủ động đặt một buổi trao đổi và hướng dẫn vận động 1:1 trong ngày.",
     points: [
-      "Xếp lịch gọn 2 buổi/tuần để bạn không phải đi lại quá nhiều.",
-      "Nhóm ca thường gặp: đau cổ vai gáy dân văn phòng và thoát vị đĩa đệm thắt lưng.",
-      "Có thể gửi kết quả chụp MRI/X-quang qua Zalo trước để buổi đầu đỡ mất thời gian.",
+      "Khung giờ có thể hẹn trước để hạn chế chờ đợi.",
+      "Nội dung thường được quan tâm: mỏi cổ vai gáy khi ngồi làm việc và thói quen vận động cho lưng.",
+      "Bạn có thể nhắn tình huống sinh hoạt qua Zalo để biết buổi hướng dẫn có phù hợp hay không.",
     ],
     homeVisit: false,
   },
   {
     slug: "ba-tri",
     label: "Ba Tri",
-    keyword: "Vật lý trị liệu cho người ở Ba Tri",
+    keyword: "Hướng dẫn vận động cho người ở Ba Tri",
     travel: "Khoảng 20 km theo ĐT885 hướng biển, chừng 35 phút xe máy",
     intro:
-      "Ba Tri là vùng làm biển và làm ruộng, phần lớn ca tới đây là đau thắt lưng do bưng vác và thoái hoá khớp gối ở người lớn tuổi. Lộ trình được rút gọn số buổi, phần còn lại chuyển thành bài tập tại nhà.",
+      "Người làm việc tay chân thường quan tâm tới cách di chuyển, bưng bê và duy trì vận động nhẹ nhàng trong ngày. Nội dung được trao đổi theo chính hoạt động của bạn.",
     points: [
-      "Ưu tiên giáo án tại nhà dưới 15 phút để người nhà kèm được mỗi ngày.",
-      "Ca thoái hoá gối được đặt mục tiêu theo việc cần làm: lên xuống ghe, đi chợ, leo cầu thang.",
-      "Gộp lịch buổi sáng để đi về trong nửa ngày.",
+      "Gợi ý thói quen vận động ngắn, dễ thực hiện trong sinh hoạt.",
+      "Thực hành cách lên xuống bậc, đi lại và bưng vật nhẹ với tư thế phù hợp.",
+      "Có thể ưu tiên khung giờ sáng để tiện đi về trong ngày.",
     ],
     homeVisit: false,
   },
   {
     slug: "mo-cay",
     label: "Mỏ Cày",
-    keyword: "Vật lý trị liệu cho người ở Mỏ Cày",
+    keyword: "Chăm sóc sức khỏe vận động cho người ở Mỏ Cày",
     travel: "Khoảng 30 km qua TP. Bến Tre theo QL60, chừng 50 phút",
     intro:
-      "Đường xa hơn nên lịch được xếp thưa mà chắc: mỗi buổi làm kỹ hơn, kèm bài tập nhà chi tiết và theo dõi qua Zalo giữa các buổi.",
+      "Nếu đi xa, bạn có thể đặt trước để buổi trao đổi và hướng dẫn được chuẩn bị gọn, tập trung vào những thói quen bạn muốn cải thiện.",
     points: [
-      "Thường 1 buổi/tuần tại phòng, phần còn lại tập tại nhà có người kiểm tra.",
-      "Mỗi bài tập có video quay riêng, ghi rõ số lần và dấu hiệu phải dừng.",
-      "Tái đánh giá mỗi 6 buổi, không cải thiện thì đổi hướng chứ không kéo dài liệu trình.",
+      "Cùng chọn một vài vận động đơn giản để thực hành ở nhà.",
+      "Nội dung hướng dẫn được ghi lại ngắn gọn để bạn dễ nhớ.",
+      "Nếu cần đánh giá hoặc điều trị y tế, trung tâm sẽ khuyến nghị bạn đến cơ sở phù hợp.",
     ],
     homeVisit: false,
   },
   {
     slug: "chau-thanh",
     label: "Châu Thành",
-    keyword: "Vật lý trị liệu cho người ở Châu Thành",
+    keyword: "Hướng dẫn tư thế & vận động cho người ở Châu Thành",
     travel: "Khoảng 30 km qua TP. Bến Tre, chừng 50 phút",
     intro:
-      "Khu vực gần cầu Rạch Miễu, nhiều người làm việc ở khu công nghiệp với chấn thương lặp lại do tư thế: đau cổ tay, đau khuỷu, đau vai một bên.",
+      "Người làm việc theo ca hoặc thao tác lặp lại có thể tìm đến để trao đổi về tư thế, quãng nghỉ và cách vận động nhẹ phù hợp với nhịp làm việc.",
     points: [
-      "Xử lý nhóm đau do động tác lặp lại, kèm chỉnh lại tư thế làm việc.",
-      "Buổi đánh giá 45 phút có phần hỏi kỹ về thao tác trong ca làm.",
-      "Lịch tối sau 17:00 dành cho người tan ca.",
+      "Cùng xem lại thao tác và vị trí làm việc hằng ngày.",
+      "Trao đổi trước về thời gian đứng, ngồi và vận động trong ca.",
+      "Có khung giờ sau 17:00 cho người tan ca.",
     ],
     homeVisit: false,
   },
   {
     slug: "binh-dai",
     label: "Bình Đại",
-    keyword: "Vật lý trị liệu cho người ở Bình Đại",
+    keyword: "Chăm sóc vận động cho người ở Bình Đại",
     travel: "Khoảng 40 km qua TP. Bến Tre, chừng 1 giờ",
     intro:
-      "Xa nhất trong nhóm khu vực thường xuyên, nên buổi đầu luôn được sắp dài hơn để đánh giá đủ và ra được giáo án mang về ngay trong hôm đó.",
+      "Quãng đường xa hơn nên bạn nên nhắn trước để trung tâm tư vấn về nội dung buổi hướng dẫn và xác nhận thời gian phù hợp.",
     points: [
-      "Buổi đầu gồm đánh giá và trị liệu, không phải đi thêm một chuyến mới bắt đầu.",
-      "Giáo án nhà viết kỹ, có mốc tự kiểm tra để bạn biết khi nào cần quay lại.",
-      "Nhắn Zalo trước để giữ khung giờ, tránh đi xa rồi phải chờ.",
+      "Buổi đầu tập trung vào nhu cầu sinh hoạt và vài động tác dễ nhớ.",
+      "Bạn nhận được lưu ý thực hành an toàn cho các hoạt động thường ngày.",
+      "Nhắn Zalo để giữ khung giờ, tránh đi xa rồi phải chờ.",
     ],
     homeVisit: false,
   },
   {
     slug: "thanh-phu",
     label: "Thạnh Phú",
-    keyword: "Vật lý trị liệu cho người ở Thạnh Phú",
+    keyword: "Hướng dẫn vận động cho người ở Thạnh Phú",
     travel: "Khoảng 55 km theo QL57, chừng 1 giờ 15 phút",
     intro:
-      "Với quãng đường này, phần lớn ca được thiết kế theo hướng ít buổi tại phòng và nặng phần tập tại nhà, chỉ những giai đoạn cần can thiệp bằng tay mới hẹn lên.",
+      "Trước khi đi xa, bạn có thể nhắn mô tả ngắn về nhu cầu vận động để biết trung tâm có phù hợp với mình hay nên tìm cơ sở y tế gần nhà.",
     points: [
-      "Tư vấn trước qua Zalo để biết trường hợp của bạn có đáng đi xa hay không.",
-      "Nếu gần nhà có cơ sở phù hợp hơn, bạn sẽ được nói thẳng và giới thiệu.",
-      "Theo dõi tiến triển qua video bạn tự quay, chỉnh sửa từng tuần.",
+      "Trao đổi trước qua Zalo để biết chuyến đi có cần thiết hay không.",
+      "Nếu nhu cầu cần thăm khám y tế, bạn sẽ được khuyến nghị tới cơ sở phù hợp gần hơn.",
+      "Nội dung tại trung tâm hướng tới thói quen vận động trong đời sống hằng ngày.",
     ],
     homeVisit: false,
   },
@@ -264,127 +255,136 @@ export const regions: Region[] = [
     label: "Cổ vai gáy",
     x: 50,
     y: 17.5,
-    title: "Đau cổ vai gáy",
-    signs: "Cứng gáy buổi sáng, đau lan xuống bả vai, tê đầu ngón tay sau vài giờ ngồi máy.",
+    title: "Cổ vai gáy khi nghỉ ngơi",
+    signs:
+      "Căng mỏi cổ vai gáy có thể khiến việc ngồi lâu, quay đầu hoặc nghỉ ngơi chưa được thoải mái.",
     plan: [
-      "Giải phóng cơ thang trên và cơ nâng vai bằng tay",
-      "Tập kiểm soát cơ gấp cổ sâu, 5 phút/ngày",
-      "Sửa chiều cao màn hình và tay đặt bàn phím",
+      "Trao đổi về tư thế ngồi và gối tựa thường dùng",
+      "Thực hành vài vận động nhẹ, chậm và vừa sức",
+      "Gợi ý các quãng nghỉ xen kẽ trong ngày",
     ],
-    duration: "6–8 buổi",
+    duration: "Trao đổi trong buổi đầu",
   },
   {
     id: "vai",
     label: "Khớp vai",
     x: 67,
     y: 21,
-    title: "Viêm quanh khớp vai · vai đông cứng",
-    signs: "Không với được tay ra sau lưng, đau tăng về đêm, mặc áo phải nhờ người khác.",
+    title: "Vận động vai trong sinh hoạt",
+    signs:
+      "Việc với đồ, thay áo hoặc thực hiện các động tác quen thuộc có thể cần thêm thời gian và điểm tựa phù hợp.",
     plan: [
-      "Kéo giãn bao khớp theo hướng bị hạn chế",
-      "Tập lấy lại tầm vận động có kiểm soát góc",
-      "Mạnh dần nhóm xoay ngoài với dây kháng lực",
+      "Xem lại các hoạt động dùng tay trong ngày",
+      "Hướng dẫn vận động chậm, trong giới hạn dễ chịu",
+      "Gợi ý cách bố trí vật dụng trong tầm với",
     ],
-    duration: "10–14 buổi",
+    duration: "Theo nhu cầu sinh hoạt",
   },
   {
     id: "khuyu-co-tay",
     label: "Khuỷu · cổ tay",
     x: 25,
     y: 36,
-    title: "Đau khuỷu tay & hội chứng ống cổ tay",
-    signs: "Đau mặt ngoài khuỷu khi cầm nắm, tê 3 ngón đầu về đêm, rơi đồ vật.",
+    title: "Cầm nắm và vận động tay",
+    signs:
+      "Các thao tác như cầm ly nước, cài nút áo hoặc dùng đồ vật nhỏ cần sự chủ động và nhịp vận động vừa sức.",
     plan: [
-      "Giảm tải gân và điều chỉnh tư thế cầm nắm",
-      "Bài tập lệch tâm cho gân duỗi cổ tay",
-      "Trượt thần kinh giữa để giảm tê",
+      "Cùng xem lại cách cầm nắm đồ vật thường dùng",
+      "Thực hành vài vận động tay nhẹ nhàng",
+      "Gợi ý cách nghỉ xen kẽ khi làm việc nhà",
     ],
-    duration: "6–10 buổi",
+    duration: "Trao đổi theo hoạt động hằng ngày",
   },
   {
     id: "lung-tren",
     label: "Lưng trên",
     x: 50,
     y: 29,
-    title: "Đau lưng trên & gù tư thế",
-    signs: "Nặng giữa hai bả vai cuối ngày, thở nông, vai đổ ra trước khi soi gương.",
+    title: "Lưng trên và tư thế ngồi",
+    signs:
+      "Ngồi lâu có thể khiến lưng trên nhanh mỏi; một chiếc ghế vững và tư thế có điểm tựa giúp người lớn tuổi an tâm hơn.",
     plan: [
-      "Di động khớp đốt sống ngực",
-      "Tập mở ngực và ổn định xương bả vai",
-      "Đặt lịch đứng dậy mỗi 40 phút",
+      "Cùng xem lại ghế ngồi và điểm tựa lưng",
+      "Thực hành vận động mở ngực nhẹ nhàng",
+      "Gợi ý đổi tư thế và đi lại vừa sức",
     ],
-    duration: "6–8 buổi",
+    duration: "Buổi hướng dẫn 1:1",
   },
   {
     id: "that-lung",
     label: "Thắt lưng",
     x: 50,
     y: 40,
-    title: "Thoát vị đĩa đệm · đau thần kinh tọa",
-    signs: "Đau lan xuống mông và mặt sau đùi, tăng khi ngồi lâu hoặc ho, khó cúi buộc dây giày.",
+    title: "Lưng và thắt lưng khi chuyển tư thế",
+    signs:
+      "Các chuyển động từ nằm sang ngồi, ngồi sang đứng hoặc cúi lấy đồ nên được thực hiện chậm rãi và chủ động.",
     plan: [
-      "Giảm áp cột sống và điều trị bằng tay theo hướng ưu tiên",
-      "Tập ổn định cơ lõi ở tư thế không gây đau",
-      "Dạy lại cách cúi, nâng vật và ngồi xe máy",
+      "Cùng quan sát cách ngồi, cúi và chuyển tư thế",
+      "Thực hành vận động nhẹ theo khả năng hiện tại",
+      "Gợi ý sử dụng ghế, điểm tựa và vật dụng quen thuộc",
     ],
-    duration: "10–16 buổi",
+    duration: "Nội dung theo nhu cầu",
   },
   {
     id: "hong",
     label: "Hông · háng",
     x: 38,
     y: 47,
-    title: "Đau khớp háng & cơ mông yếu",
-    signs: "Đau khe háng khi bước dài, đi cà nhắc sau khi ngồi lâu, một bên hông thấp hơn.",
+    title: "Hông và dáng đi hằng ngày",
+    signs:
+      "Đứng lên, đi bộ hoặc bước qua bậc thấp là những hoạt động có thể cần một nhịp chậm và điểm tựa chắc chắn.",
     plan: [
-      "Nới cơ gấp háng và cơ hình lê",
-      "Tập mông nhỡ để cân bằng khung chậu",
-      "Tập bước lên bậc có kiểm soát",
+      "Quan sát các hoạt động người tham gia muốn làm chủ động hơn",
+      "Hướng dẫn vận động nhẹ cho vùng hông và chân",
+      "Thực hành bước lên bậc chậm, ổn định",
     ],
-    duration: "8–12 buổi",
+    duration: "Trao đổi cùng trung tâm",
   },
   {
     id: "goi",
     label: "Khớp gối",
     x: 60,
     y: 64,
-    title: "Thoái hoá gối · sau mổ dây chằng",
-    signs: "Lục cục khi lên xuống cầu thang, sưng sau khi đi bộ, gối không duỗi thẳng hết.",
+    title: "Khớp gối trong hoạt động thường ngày",
+    signs:
+      "Đi bộ, lên xuống cầu thang hay ngồi lâu có thể cần được chia nhỏ theo khả năng vận động của mỗi người.",
     plan: [
-      "Lấy lại tầm duỗi gối trước, luôn luôn trước",
-      "Mạnh cơ tứ đầu bằng bài tập không tải khớp",
-      "Tập thăng bằng một chân trước khi trả về thể thao",
+      "Trao đổi về nhịp đi lại và các bậc thang trong ngày",
+      "Thực hành vài vận động nhẹ, có ghế hoặc điểm tựa khi cần",
+      "Gợi ý cách sắp xếp thời gian vận động và nghỉ ngơi",
     ],
-    duration: "12–20 buổi",
+    duration: "Theo nhu cầu vận động",
   },
   {
     id: "co-chan",
     label: "Cổ chân",
     x: 60,
     y: 82,
-    title: "Bong gân cổ chân & viêm cân gan chân",
-    signs: "Đau gót bước chân đầu tiên buổi sáng, cổ chân lỏng sau lần lật cũ chưa tập lại.",
+    title: "Cổ chân và bàn chân khi di chuyển",
+    signs:
+      "Bàn chân là nền tảng của từng bước đi; giày dép, mặt đường và nhịp di chuyển phù hợp đều rất quan trọng.",
     plan: [
-      "Di động khớp sên–chày lấy lại gập mu",
-      "Tập cảm thụ bản thể trên mặt phẳng không ổn định",
-      "Mạnh cơ bắp chân theo tải tăng dần",
+      "Cùng xem lại giày dép, mặt đường và cách bố trí lối đi",
+      "Thực hành vận động chân nhẹ nhàng, an toàn",
+      "Gợi ý tăng dần hoạt động theo khả năng cá nhân",
     ],
-    duration: "6–10 buổi",
+    duration: "Trao đổi cùng trung tâm",
   },
 ];
 
 export const stats = [
-  { value: "8", unit: "năm", label: "lâm sàng phục hồi chức năng" },
-  { value: "1.200", unit: "+", label: "ca đã theo tới khi tự tập được" },
-  { value: "45", unit: "phút", label: "cho buổi đánh giá đầu tiên" },
-  { value: "1:1", unit: "", label: "một người kèm, không xoay ca" },
+  { value: "1:1", unit: "", label: "một người trong một khung giờ" },
+  { value: "45", unit: "phút", label: "buổi trao đổi ban đầu" },
+  { value: "Ngồi · đứng", unit: "", label: "vận động cơ bản hằng ngày" },
+  { value: "Đi · thăng bằng", unit: "", label: "hỗ trợ duy trì sự chủ động" },
 ];
 
-export const credentials = [
-  "Cử nhân Vật lý trị liệu – Phục hồi chức năng",
-  "Chứng chỉ trị liệu bằng tay (Manual Therapy)",
-  "Chứng chỉ băng dán cơ và tập luyện trị liệu",
-  "Hội viên Hội Vật lý trị liệu Việt Nam",
+export const carePrinciples = [
+  "Trao đổi rõ nhu cầu và giới hạn hỗ trợ trước khi bắt đầu.",
+  "Hướng dẫn vận động nhẹ nhàng, phù hợp với khả năng và sinh hoạt hằng ngày.",
+  "Khuyến khích người thân cùng quan sát và ghi nhớ các lưu ý thực hành.",
+  "Không khám bệnh, chẩn đoán, kê đơn hoặc thay thế cơ sở y tế.",
+  "Khuyến nghị thăm khám khi tình trạng liên quan bệnh lý cần chuyên môn y tế.",
 ];
 
 export type Service = {
@@ -398,160 +398,158 @@ export type Service = {
 export const services: Service[] = [
   {
     id: "dia-dem",
-    title: "Thoát vị đĩa đệm & đau thần kinh tọa",
-    body: "Giảm áp cột sống, trị liệu bằng tay theo hướng cơ thể chịu được, rồi mới tới phần tập giữ kết quả.",
+    title: "Ngồi – đứng trong sinh hoạt",
+    body: "Cùng thực hành cách ngồi xuống, đứng lên và chuyển tư thế chậm rãi, phù hợp với khả năng hiện tại.",
     image: "serviceDisc",
-    tags: ["Cột sống", "Thần kinh"],
+    tags: ["Ngồi · đứng", "Sinh hoạt"],
   },
   {
     id: "co-vai-gay",
-    title: "Cổ vai gáy dân văn phòng",
-    body: "Xử lý gốc từ tư thế ngồi và bàn làm việc, không chỉ xoa bóp cho đỡ vài ngày.",
+    title: "Cổ vai gáy khi nghỉ ngơi",
+    body: "Gợi ý tư thế ngồi, gối tựa và các vận động nhẹ giúp vùng cổ vai gáy dễ chịu hơn trong ngày.",
     image: "serviceNeck",
-    tags: ["Tư thế", "Văn phòng"],
+    tags: ["Cổ · vai", "Nghỉ ngơi"],
   },
   {
     id: "thoai-hoa",
-    title: "Thoái hoá cột sống cổ & thắt lưng",
-    body: "Sống chung với thoái hoá mà vẫn đi bộ, bế cháu, lái xe được — mục tiêu đặt theo việc bạn cần làm.",
+    title: "Vận động nhẹ cho lưng & cột sống",
+    body: "Thực hành các chuyển động chậm, có điểm tựa khi cần, để duy trì sự linh hoạt trong những việc thường ngày.",
     image: "serviceSpine",
-    tags: ["Trung niên", "Duy trì"],
+    tags: ["Cột sống", "Nhẹ nhàng"],
   },
   {
     id: "the-thao",
-    title: "Chấn thương thể thao",
-    body: "Từ hết đau tới trở lại sân: có tiêu chí đo được cho từng mốc, không đoán bằng cảm giác.",
+    title: "Giữ thăng bằng & đi lại",
+    body: "Cùng chọn các bài thực hành đơn giản với ghế hoặc điểm tựa chắc chắn để hỗ trợ sự tự tin khi di chuyển.",
     image: "serviceSport",
-    tags: ["Gym", "Chạy bộ", "Bóng đá"],
+    tags: ["Thăng bằng", "Đi lại"],
   },
   {
     id: "sau-mo",
-    title: "Phục hồi sau mổ & sau đột quỵ",
-    body: "Bám sát mốc thời gian bác sĩ phẫu thuật đưa ra, tập đúng giai đoạn, không nhanh hơn cũng không chậm hơn.",
+    title: "Vận động tay chân cơ bản",
+    body: "Gợi ý những chuyển động chậm cho tay và chân, ưu tiên sự thoải mái và an toàn trong sinh hoạt hằng ngày.",
     image: "servicePostOp",
-    tags: ["Hậu phẫu", "Thần kinh"],
+    tags: ["Tay · chân", "Tại nhà"],
   },
   {
     id: "veo-cot-song",
-    title: "Cong vẹo cột sống & sai tư thế ở trẻ",
-    body: "Đo góc, theo dõi theo quý, tập tại nhà cùng ba mẹ để giữ đều đặn giữa các buổi.",
+    title: "Người thân đồng hành",
+    body: "Người nhà có thể cùng tham gia buổi hướng dẫn để hiểu cách bố trí không gian và nhắc lại vận động hằng ngày.",
     image: "serviceScoliosis",
-    tags: ["Trẻ em", "Theo dõi dài"],
+    tags: ["Người thân", "Đồng hành"],
   },
 ];
 
 export const methods = [
   {
-    title: "Trị liệu bằng tay",
-    body: "Di động khớp và mô mềm, làm trực tiếp trên vùng hạn chế thay vì massage toàn thân cho dễ chịu.",
+    title: "Lắng nghe nhu cầu sinh hoạt",
+    body: "Bắt đầu từ những việc bạn hoặc người thân đang muốn làm dễ dàng hơn: ngồi dậy, đi lại, tự chăm sóc hoặc ra ngoài.",
   },
   {
-    title: "Vận động trị liệu",
-    body: "Bài tập chọn theo kết quả đánh giá của riêng bạn, tăng tải khi cơ thể sẵn sàng chứ không theo lịch cố định.",
+    title: "Hướng dẫn vận động vừa sức",
+    body: "Thực hành các chuyển động chậm, đơn giản, có điểm tựa khi cần và luôn ưu tiên cảm giác an toàn, dễ chịu.",
   },
   {
-    title: "Điện xung · siêu âm · laser",
-    body: "Dùng đúng chỗ cần giảm đau để bạn tập được, chứ không phải phần chính của buổi trị liệu.",
+    title: "Sắp xếp không gian dễ tiếp cận",
+    body: "Cùng rà lại ghế, điểm tựa, lối đi và những vật dụng dùng thường xuyên để việc di chuyển trong nhà thuận tiện hơn.",
   },
   {
-    title: "Kéo giãn giảm áp cột sống",
-    body: "Dành cho ca chèn ép rễ thần kinh, cài lực theo cân nặng và mức chịu đau từng buổi.",
+    title: "Thực hành vận động trong đời sống",
+    body: "Tập các cách ngồi xuống, đứng lên, bước bậc và đi lại chậm rãi để duy trì sự chủ động trong các việc quen thuộc.",
   },
   {
-    title: "Giáo án tập tại nhà",
-    body: "Mỗi bài một video quay riêng cho bạn, gửi qua Zalo, kèm số lần và dấu hiệu phải dừng.",
+    title: "Gợi ý thực hành tại nhà",
+    body: "Bạn và người thân nhận các lưu ý ngắn, dễ nhớ để lồng ghép vận động nhẹ vào nhịp sinh hoạt hằng ngày.",
   },
   {
-    title: "Tái đánh giá định kỳ",
-    body: "Cứ 6 buổi đo lại tầm vận động và sức cơ. Không cải thiện thì đổi hướng, không kéo dài liệu trình.",
+    title: "Theo dõi và điều chỉnh",
+    body: "Buổi tiếp theo dùng để lắng nghe cảm nhận, điều chỉnh thói quen và khuyến nghị thăm khám nếu dấu hiệu liên quan bệnh lý cần chuyên môn y tế.",
   },
 ];
 
 export const journey = [
   {
     step: "01",
-    title: "Hỏi bệnh & đánh giá vận động",
-    body: "45 phút. Nghe hết chuyện của bạn, đo tầm vận động, thử các nghiệm pháp, xem phim nếu có.",
+    title: "Trao đổi nhu cầu vận động",
+    body: "Khoảng 45 phút để lắng nghe người lớn tuổi và người thân về những hoạt động đang khó khăn, cùng mục tiêu sinh hoạt mong muốn.",
   },
   {
     step: "02",
-    title: "Giải thích và thống nhất mục tiêu",
-    body: "Bạn biết mình đang bị gì, mất bao lâu, và mục tiêu đặt theo việc bạn cần làm được, không đặt theo cơn đau.",
+    title: "Thống nhất nội dung phù hợp",
+    body: "Cùng chọn những vận động nhẹ, điểm tựa và thay đổi không gian phù hợp với khả năng hiện tại; không đưa ra chẩn đoán bệnh.",
   },
   {
     step: "03",
-    title: "Trị liệu tại phòng",
-    body: "Mỗi buổi 60 phút, một mình bạn với mentor. Trị liệu tay trước, tập sau, kết thúc bằng bài mang về.",
+    title: "Hướng dẫn 1:1 tại trung tâm",
+    body: "Người tham gia thực hành cùng người hướng dẫn trong không gian riêng, có thể mời người thân cùng quan sát các lưu ý an toàn.",
   },
   {
     step: "04",
-    title: "Tập tại nhà có người theo",
-    body: "Video riêng qua Zalo. Tuần nào cũng có người hỏi bạn tập tới đâu, vướng chỗ nào.",
+    title: "Duy trì thói quen tại nhà",
+    body: "Lồng ghép các gợi ý đã thống nhất vào giờ nghỉ ngơi, đi lại và tự chăm sóc để duy trì sự đều đặn, vừa sức.",
   },
   {
     step: "05",
-    title: "Tái đánh giá & trả bạn về tự tập",
-    body: "Đủ chỉ số thì kết thúc liệu trình, nhận giáo án duy trì. Mục tiêu là bạn không cần quay lại.",
+    title: "Ghi nhận và điều chỉnh",
+    body: "Nếu cần, bạn có thể hẹn lại để chia sẻ cảm nhận và điều chỉnh thói quen; tình trạng cần y tế sẽ được khuyến nghị thăm khám.",
   },
 ];
 
 export const stories = [
   {
-    name: "Chị Anh",
-    meta: "34 tuổi · Nhân viên văn phòng",
-    condition: "Thoát vị L4–L5",
-    quote:
-      "Trước đó tôi ngồi họp 20 phút là phải đứng dậy. Sau 12 buổi tôi bay Hà Nội – Sài Gòn mà không phải xin đổi chỗ ngồi.",
-    outcome: "Ngồi liên tục 20 phút → 3 giờ",
+    eyebrow: "Tự chủ trong sinh hoạt",
+    title: "Bắt đầu từ một lần ngồi dậy an tâm hơn",
+    body: "Một chiếc ghế vững, điểm tựa phù hợp và nhịp vận động chậm rãi có thể giúp việc chuyển tư thế hằng ngày trở nên chủ động hơn.",
+    takeaway: "Chậm rãi, có điểm tựa và vừa sức",
     image: "storyAnh" as ImageKey,
   },
   {
-    name: "Anh Minh",
-    meta: "41 tuổi · Chạy bộ phong trào",
-    condition: "Sau mổ dây chằng chéo trước",
-    quote:
-      "Điều tôi cần là biết khi nào được chạy lại. Ở đây có tiêu chí rõ ràng cho từng mốc nên tôi không còn tự đoán.",
-    outcome: "Trở lại cự ly 10km sau 7 tháng",
+    eyebrow: "Đi lại hằng ngày",
+    title: "Mỗi bước đi đều có thể bắt đầu từ nhịp riêng",
+    body: "Đi bộ chậm, chọn đoạn đường quen thuộc và có người thân đồng hành khi cần là cách duy trì vận động nhẹ nhàng trong ngày.",
+    takeaway: "Chọn quãng đường quen thuộc, an toàn",
     image: "storyMinh" as ImageKey,
   },
   {
-    name: "Cô Hà",
-    meta: "58 tuổi · Nội trợ",
-    condition: "Thoái hoá khớp gối hai bên",
-    quote:
-      "Tôi từng nghĩ tới thay khớp. Giờ tôi lên xuống cầu thang nhà ba tầng, vẫn đi chợ mỗi sáng.",
-    outcome: "Bỏ được nạng sau 9 buổi",
+    eyebrow: "Cùng người thân",
+    title: "Người thân hiểu cách hỗ trợ sẽ an tâm hơn",
+    body: "Cùng sắp xếp lối đi, điểm tựa và giờ vận động giúp việc đồng hành tại nhà trở nên nhẹ nhàng, tôn trọng và nhất quán.",
+    takeaway: "Cùng quan sát, nhắc nhẹ và lắng nghe",
     image: "storyHa" as ImageKey,
   },
 ];
 
 export const faqs = [
   {
-    q: "Chưa có phim chụp thì đi khám được không?",
-    a: "Được. Buổi đầu là đánh giá vận động trực tiếp. Nếu có dấu hiệu cần hình ảnh học hoặc cần bác sĩ can thiệp, bạn sẽ được nói rõ và giới thiệu, không giữ ca lại.",
+    q: "Trung tâm phù hợp với ai?",
+    a: "Trung tâm tập trung vào người lớn tuổi và người suy giảm vận động trong sinh hoạt, cùng người thân muốn hỗ trợ các hoạt động như ngồi–đứng, đi lại và tự chăm sóc hằng ngày. Với tình trạng do bệnh lý, hãy ưu tiên thực hiện theo chỉ định của cơ sở y tế và thăm khám khi cần.",
   },
   {
-    q: "Một liệu trình bao nhiêu buổi?",
-    a: "Tuỳ vùng và tuỳ mức độ, thường 6–16 buổi. Con số dự kiến được đưa ra ngay sau buổi đánh giá, và tái đánh giá mỗi 6 buổi để điều chỉnh.",
+    q: "Trung tâm có phải là phòng khám hay cơ sở vật lý trị liệu không?",
+    a: "Không. Đây là trung tâm chăm sóc sức khỏe và hướng dẫn vận động trong phạm vi hoạt động phù hợp; trung tâm không khám bệnh, chẩn đoán, kê đơn hoặc thay thế cơ sở khám bệnh, chữa bệnh.",
   },
   {
-    q: "Trị liệu có đau không?",
-    a: "Có thể tức nhẹ khi làm tay, nhưng không đau tới mức phải nín thở. Thang đau được hỏi trong từng thao tác và dừng khi bạn báo dừng.",
+    q: "Trung tâm hỗ trợ những nội dung nào?",
+    a: "Nội dung tập trung vào tư thế, thói quen vận động và sinh hoạt liên quan vùng cổ vai gáy, lưng, cột sống và xương khớp. Buổi trao đổi giúp bạn chọn các vận động nhẹ, phù hợp và dễ áp dụng trong ngày.",
   },
   {
-    q: "Không tập ở nhà thì có kết quả không?",
-    a: "Chậm hơn nhiều. Phần lớn tiến bộ đến từ những gì bạn làm giữa các buổi, nên giáo án nhà được thiết kế gọn dưới 15 phút để bạn giữ được đều.",
+    q: "Khi nào tôi nên đến cơ sở khám bệnh, chữa bệnh?",
+    a: "Nếu bạn có cơn đau dữ dội hoặc tăng nhanh, tê yếu rõ rệt, chấn thương mới, sốt hay bất kỳ dấu hiệu khiến bạn lo lắng, hãy ưu tiên thăm khám tại cơ sở y tế. Trung tâm không thay thế việc khám và chẩn đoán chuyên môn.",
   },
   {
-    q: "Phòng vật lý trị liệu nằm ở đâu tại Giồng Trôm?",
+    q: "Buổi hướng dẫn diễn ra như thế nào?",
+    a: "Buổi đầu khoảng 45 phút: trao đổi nhu cầu, xem lại các tư thế và hoạt động thường ngày, rồi cùng thực hành một số vận động nhẹ nhàng. Bạn luôn có thể dừng lại nếu không thấy thoải mái.",
+  },
+  {
+    q: "Trung tâm chăm sóc sức khỏe nằm ở đâu tại Giồng Trôm?",
     a: "Số 12, Khu phố 1, Thị trấn Giồng Trôm (xã Giồng Trôm, tỉnh Vĩnh Long — trước đây thuộc huyện Giồng Trôm, tỉnh Bến Tre). Từ chợ Giồng Trôm chạy xe máy chưa tới 5 phút, có chỗ để xe. Gọi hoặc nhắn Zalo 0835 632 227 để được chỉ đường.",
   },
   {
-    q: "Có nhận trị liệu tại nhà không?",
-    a: "Có, cho ca sau mổ và sau đột quỵ chưa tự di chuyển được, trong phạm vi xã Giồng Trôm và các xã liền kề. Nhắn trước để sắp lịch theo tuyến đường trong ngày.",
+    q: "Tôi có cần đăng ký trước không?",
+    a: "Có. Hãy gọi hoặc nhắn Zalo trước để trung tâm xác nhận khung giờ và trao đổi sơ bộ về nhu cầu của bạn. Điều này giúp bạn không phải chờ khi đến nơi.",
   },
   {
-    q: "Ở TP. Bến Tre, Ba Tri, Mỏ Cày có tới được không?",
-    a: "Được. Người ở xa được xếp lịch thưa hơn nhưng mỗi buổi làm kỹ hơn, phần lớn tiến bộ đến từ giáo án tập tại nhà có người theo dõi qua Zalo giữa các buổi. Nhắn tình trạng trước để biết trường hợp của bạn có cần đi lại nhiều hay không.",
+    q: "Người ở TP. Bến Tre, Ba Tri, Mỏ Cày có thể tới không?",
+    a: "Được. Hãy nhắn trước để kiểm tra khung giờ phù hợp và cân nhắc việc đi lại. Nếu nhu cầu của bạn cần khám hoặc điều trị y tế, trung tâm sẽ khuyến nghị bạn đến cơ sở chuyên môn phù hợp.",
   },
 ];
